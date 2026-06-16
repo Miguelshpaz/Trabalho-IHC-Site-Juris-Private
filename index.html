@@ -579,27 +579,862 @@
     }
     .password-toggle:hover { background: #f3f4f6; color: #111827; }
     .password-toggle svg { width: 18px; height: 18px; display: block; }
-    .code-sent-box {
-      display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; border-radius: 16px;
-      background: #f5f7ff; border: 1px solid #e4e8f2; color: #566074; font-size: .9rem; line-height: 1.45;
-      margin: 8px 0 16px;
-    }
-    .code-sent-box strong { color: #141827; }
-    .code-icon {
-      width: 34px; height: 34px; flex: 0 0 34px; border-radius: 12px; display: grid; place-items: center;
-      background: linear-gradient(135deg, rgba(124,58,237,.16), rgba(56,189,248,.16)); color: #7c3aed;
-    }
-    .code-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin: 12px 0 10px; }
-    .code-input {
-      height: 50px; border: 1px solid #d9deea; border-radius: 14px; text-align: center; font-size: 1.2rem;
-      font-weight: 900; color: #141827; outline: 0; transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
-      background: #fff;
-    }
-    .code-input:focus { border-color: #7c3aed; box-shadow: 0 0 0 4px rgba(124,58,237,.12); background: #fbfaff; }
-    .code-hint { display: block; color: #8790a3; font-size: .78rem; line-height: 1.45; margin-bottom: 12px; }
+
+  
+    /* ===================== AJUSTES V9 ===================== */
+    .brand-logo { width: 260px; height: 74px; }
+    .brand.compact .brand-logo { width: 225px; height: 62px; }
+    .modal-logo-shell { width: min(340px, 88%); height: 106px; border-radius: 24px; }
+    .modal-logo-shell .modal-logo { padding: 4px 8px; }
+    .terms { align-items: center; }
+    .terms input { margin-top: 0; transform: translateY(0); flex: 0 0 auto; }
+    .terms-link, .footer-linklike { border: 0; background: transparent; padding: 0; color: inherit; font: inherit; font-weight: 900; cursor: pointer; text-decoration: none; }
+    .terms-link:hover, .footer-linklike:hover { color: var(--primary); text-decoration: underline; }
+    .mvv-icon.emoji-icon { font-size: 1.35rem; color: #fff; text-shadow: 0 5px 15px rgba(124,58,237,.28); }
+
+    .password-toggle { opacity: 1 !important; visibility: visible !important; }
+    .password-toggle span { display: inline-block; font-size: 1rem; line-height: 1; color: #6b7280; }
+
+    .utility-modal { display: none; position: fixed; inset: 0; z-index: 220; align-items: center; justify-content: center; padding: 20px; background: rgba(5,5,12,.72); backdrop-filter: blur(12px); }
+    .utility-modal.active { display: flex; }
+    .utility-card { width: min(560px, 100%); max-height: calc(100vh - 42px); overflow: auto; background: #fff; color: #141827; border-radius: 26px; padding: 30px; box-shadow: var(--shadow-dark); position: relative; }
+    .utility-card h2 { margin: 0 0 8px; text-align: left; letter-spacing: -.04em; }
+    .utility-card p { color: #566074; line-height: 1.6; margin: 8px 0 16px; }
+    .utility-card textarea { width: 100%; min-height: 150px; resize: vertical; border: 1px solid #e4e8f2; border-radius: 18px; padding: 14px 16px; font: inherit; outline: 0; margin: 10px 0 16px; }
+    .utility-card textarea:focus { border-color: #7c3aed; box-shadow: 0 0 0 4px rgba(124,58,237,.12); }
+    .language-options { display: grid; gap: 10px; margin-top: 18px; }
+    .language-options button { border: 1px solid #e4e8f2; background: #f7f8fc; border-radius: 16px; padding: 14px 16px; text-align: left; cursor: pointer; font-weight: 900; color: #141827; }
+    .language-options button:hover { background: #eef2ff; border-color: #c4b5fd; }
+    .legal-card h3 { margin: 18px 0 6px; }
+
+    .code-sent-box { display:flex; align-items:flex-start; gap:12px; padding:14px 16px; border-radius:16px; background:#f5f7ff; border:1px solid #e4e8f2; color:#566074; font-size:.9rem; line-height:1.45; margin:8px 0 16px; }
+    .code-sent-box strong { color:#141827; }
+    .code-icon { width:34px; height:34px; flex:0 0 34px; border-radius:12px; display:grid; place-items:center; background:linear-gradient(135deg, rgba(124,58,237,.16), rgba(56,189,248,.16)); color:#7c3aed; }
+    .code-grid { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin:12px 0 10px; }
+    .code-input { height:50px; border:1px solid #d9deea; border-radius:14px; text-align:center; font-size:1.2rem; font-weight:900; color:#141827; outline:0; transition:border-color .18s ease, box-shadow .18s ease, background .18s ease; background:#fff; }
+    .code-input:focus { border-color:#7c3aed; box-shadow:0 0 0 4px rgba(124,58,237,.12); background:#fbfaff; }
+    .code-hint { display:block; color:#8790a3; font-size:.78rem; line-height:1.45; margin-bottom:12px; }
+
+    .chat-title-editable { display:block; min-width: 180px; max-width: 520px; outline: 0; border-radius: 9px; padding: 2px 4px; cursor: text; }
+    .chat-title-editable:focus { background: rgba(255,255,255,.08); box-shadow: 0 0 0 2px rgba(124,58,237,.45); }
+    .chat-title-editable:empty::before { content: 'Sem título'; color: rgba(255,255,255,.62); }
+
+    .source-search-card { position: relative; overflow: visible; }
+    .source-search-row { background: rgba(255,255,255,.035); border: 1px solid rgba(255,255,255,.07); border-radius: 999px; padding: 6px 6px 6px 12px; }
+    .source-search-action, .chat-send-btn { width: 38px; height: 38px; border: 0; border-radius: 50%; display: grid; place-items: center; cursor: pointer; background: rgba(255,255,255,.10); color: #a6adbb; transition: background .2s ease, color .2s ease, transform .2s ease; flex: 0 0 auto; font-weight: 900; }
+    .source-search-action .send-icon, .chat-send-btn .send-icon { display: none; }
+    .source-search-card.has-text .source-search-action, .chat-input-area.has-text .chat-send-btn { background: linear-gradient(135deg,#3b82f6,#8b5cf6); color: #fff; transform: scale(1.03); }
+    .source-search-card.has-text .source-search-action .search-icon, .chat-input-area.has-text .chat-send-btn .search-icon { display:none; }
+    .source-search-card.has-text .source-search-action .send-icon, .chat-input-area.has-text .chat-send-btn .send-icon { display:block; }
+    .chat-input-area { align-items: center; }
+    .chat-send-btn { width: 42px; height: 42px; }
+
+    .source-menu-wrap { position: relative; display: inline-flex; }
+    .source-dropdown { display: none; position: absolute; top: calc(100% + 8px); left: 0; min-width: 205px; z-index: 90; background: #20252c; border: 1px solid rgba(255,255,255,.08); box-shadow: 0 18px 48px rgba(0,0,0,.28); border-radius: 16px; padding: 8px; }
+    .source-dropdown.active { display: block; }
+    .source-dropdown button { width: 100%; border: 0; background: transparent; color: #e5e7eb; border-radius: 12px; padding: 10px; display: flex; align-items: center; gap: 10px; cursor: pointer; text-align: left; }
+    .source-dropdown button:hover { background: rgba(255,255,255,.07); }
+    .source-dropdown strong { display:block; font-size:.84rem; color:#f8fafc; }
+    .source-dropdown small { display:block; font-size:.72rem; color:#a6adbb; margin-top:2px; line-height:1.25; }
+    .dropdown-icon { width: 22px; height: 22px; display:grid; place-items:center; flex:0 0 auto; }
+    .dropdown-img-icon { width:22px; height:22px; object-fit:contain; display:block; }
+    .chip-img-icon { width:14px; height:14px; object-fit:contain; display:block; }
+
+    .workspace.sources-collapsed { grid-template-columns: 58px minmax(0, 1fr) 320px; }
+    .workspace.studio-collapsed { grid-template-columns: 300px minmax(0, 1fr) 58px; }
+    .workspace.sources-collapsed.studio-collapsed { grid-template-columns: 58px minmax(0, 1fr) 58px; }
+    .workspace.sources-collapsed .sidebar-left .panel-body,
+    .workspace.sources-collapsed .sidebar-left .source-meta,
+    .workspace.sources-collapsed .sidebar-left h2,
+    .workspace.studio-collapsed .sidebar-right .panel-body,
+    .workspace.studio-collapsed .sidebar-right .add-note,
+    .workspace.studio-collapsed .sidebar-right h2 { display: none !important; }
+    .workspace.sources-collapsed .sidebar-left .panel-head,
+    .workspace.studio-collapsed .sidebar-right .panel-head { justify-content: center; padding: 10px; }
+
+    .studio-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 10px; }
+    .studio-btn { min-height: 58px; padding: 9px 10px; justify-content: flex-start; text-align: left; gap: 8px; position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.08); }
+    .studio-emoji { width: 26px; height: 26px; display:grid; place-items:center; border-radius: 9px; background: rgba(255,255,255,.12); flex: 0 0 auto; }
+    .studio-arrow { margin-left: auto; opacity: .82; width: 28px; height: 28px; display:grid; place-items:center; border-radius: 50%; background: rgba(255,255,255,.10); }
+    .studio-blue { background: rgba(59,130,246,.18); color:#dbeafe; }
+    .studio-purple { background: rgba(168,85,247,.18); color:#f3e8ff; }
+    .studio-yellow { background: rgba(245,158,11,.18); color:#fef3c7; }
+    .studio-indigo { background: rgba(99,102,241,.18); color:#e0e7ff; }
+    .studio-green { background: rgba(34,197,94,.16); color:#dcfce7; }
+    .studio-slate { background: rgba(148,163,184,.16); color:#e2e8f0; }
+    .studio-rose { background: rgba(244,63,94,.16); color:#ffe4e6; }
+    .studio-cyan { background: rgba(6,182,212,.16); color:#cffafe; }
+    .studio-orange { background: rgba(249,115,22,.16); color:#ffedd5; }
+
+    body.theme-light #dashboard-view.app-shell,
+    body.theme-light #chat-view.app-shell { background: #f5f7fb; color: #141827; }
+    body.theme-light .app-header { background: rgba(255,255,255,.94); border-bottom-color: #e6eaf2; }
+    body.theme-light .pill-btn { color: #141827; background: #eef2ff; border-color: #dbe3f3; }
+    body.theme-light .pill-btn.light { background: #fff; color: #141827; border-color: #e4e8f2; }
+    body.theme-light .avatar { color: #fff; }
+    body.theme-light .dashboard-body { background: linear-gradient(180deg,#f8fbff,#edf2ff); color:#141827; }
+    body.theme-light .dashboard-head p,
+    body.theme-light .chat-card p,
+    body.theme-light .dashboard-footer-note { color:#566074; }
+    body.theme-light .chat-card { background:#fff; border-color:#e4e8f2; color:#141827; box-shadow: 0 16px 40px rgba(15,23,42,.08); }
+    body.theme-light .workspace { background:#edf2f7; }
+    body.theme-light .workspace-panel,
+    body.theme-light .sidebar-left,
+    body.theme-light .sidebar-left .panel-head,
+    body.theme-light .sidebar-right { background:#ffffff; border-color:#e4e8f2; color:#141827; }
+    body.theme-light .panel-head,
+    body.theme-light .chat-toolbar,
+    body.theme-light .chat-input-area { border-color:#e4e8f2; background:#fff; }
+    body.theme-light .panel-head h2,
+    body.theme-light .sidebar-left .panel-head h2,
+    body.theme-light .sidebar-right .panel-head h2,
+    body.theme-light .chat-title strong,
+    body.theme-light .empty-state h2 { color:#141827; }
+    body.theme-light .chat-title small,
+    body.theme-light .empty-state,
+    body.theme-light .source-empty,
+    body.theme-light .source-meta { color:#566074; }
+    body.theme-light .chat-main { background:#f8fbff; }
+    body.theme-light .source-search-card,
+    body.theme-light .source-dropdown { background:#f1f5fb; border-color:#e4e8f2; }
+    body.theme-light .source-chip { background:#fff; color:#141827; border:1px solid #e4e8f2; }
+    body.theme-light .source-search-row { background:#fff; border-color:#e4e8f2; }
+    body.theme-light .source-search-row input,
+    body.theme-light .chat-input-area input { color:#141827; background:transparent; }
+    body.theme-light .source-dropdown strong { color:#141827; }
+    body.theme-light .source-dropdown small { color:#566074; }
+    body.theme-light .source-dropdown button { color:#141827; }
+    body.theme-light .source-dropdown button:hover { background:#e8eef9; }
+    body.theme-light .source-item,
+    body.theme-light .msg.ai { background:#fff; border-color:#e4e8f2; color:#141827; }
+    body.theme-light .source-item span:nth-child(2),
+    body.theme-light .msg.ai strong { color:#141827; }
+    body.theme-light .chat-input-area input { border-color:#e4e8f2; }
+    body.theme-light .chat-title-editable:focus { background:#eef2ff; }
+
+  
+
+/* ===== v10 refinements ===== */
+:root { --sources-width: 300px; --studio-width: 320px; }
+.workspace { grid-template-columns: var(--sources-width) minmax(0,1fr) var(--studio-width); }
+.workspace-panel { position: relative; overflow: hidden; }
+.panel-resizer { position:absolute; top:0; bottom:0; width:10px; z-index:20; cursor:col-resize; }
+.panel-resizer.handle-right { right:-5px; }
+.panel-resizer.handle-left { left:-5px; }
+.panel-resizer::after { content:''; position:absolute; top:0; bottom:0; left:4px; width:2px; background:rgba(255,255,255,.04); transition:background .2s ease; }
+.panel-resizer:hover::after, .panel-resizer.resizing::after { background:rgba(167,139,250,.48); }
+.source-search-card { padding: 12px 12px 14px; }
+.source-search-row { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+.source-search, .chat-input-area input { margin-bottom:0; }
+.source-search::placeholder { color:#cbd5e1; }
+.source-search-card .source-search { flex:1; min-width:0; background:transparent; border:1px solid rgba(148,163,184,.16); }
+.search-img-icon, .chip-img-icon, .dropdown-img-icon { width: 1em; height: 1em; display:block; }
+.source-search-action .search-icon, .chat-send-btn .search-icon, .source-search-action .send-icon, .chat-send-btn .send-icon { display:grid; place-items:center; line-height:1; }
+.source-search-action .search-icon img { width:1.08rem; height:1.08rem; }
+.source-chip-row { flex-wrap: wrap; gap:8px; }
+.source-chip { padding: 7px 10px; min-height: 34px; border:1px solid rgba(255,255,255,.08); }
+.chip-caret { display:grid; place-items:center; opacity:.88; }
+.chip-caret .chip-img-icon { width:.95rem; height:.95rem; }
+.dropdown-icon, .chip-leading { display:grid; place-items:center; min-width: 1rem; }
+.source-dropdown button { gap:10px; align-items:flex-start; }
+.source-dropdown strong { display:block; font-size:.84rem; }
+.source-dropdown small { display:block; color:#97a1b2; margin-top:1px; }
+.source-empty { padding: 26px 10px 22px; }
+.source-empty-icon { width:58px; height:58px; border-radius:18px; background:rgba(255,255,255,.03); margin:0 auto 14px; display:grid; place-items:center; }
+.source-empty-icon img { width:2rem; height:2rem; opacity:.95; }
+.workspace.sources-collapsed .sidebar-left { width:58px; }
+.workspace.studio-collapsed .sidebar-right { width:58px; }
+.panel-collapsed-dock { display:none; flex-direction:column; align-items:center; gap:12px; padding: 10px 8px 16px; height:100%; }
+.workspace.sources-collapsed .sources-collapsed-dock, .workspace.studio-collapsed .studio-collapsed-dock { display:flex; }
+.collapsed-main-btn { width: 38px; height: 38px; border-radius: 12px; border:1px solid rgba(255,255,255,.12); background: rgba(255,255,255,.05); color: #ffffff; font-size: 1.55rem; cursor:pointer; }
+.studio-collapsed-dock { gap: 10px; padding-top: 14px; padding-bottom: 14px; overflow:auto; }
+.collapsed-tool { width: 38px; min-height: 38px; border-radius: 12px; border:1px solid rgba(255,255,255,.08); background:#21263a; color:#fff; display:grid; place-items:center; position:relative; cursor:pointer; }
+.collapsed-tool span { font-size: 1rem; }
+.collapsed-tool b { position:absolute; right:5px; bottom:4px; font-size:.62rem; color:#f8fafc; }
+.collapsed-add-note { margin-top:auto; width:38px; height:38px; border-radius:999px; min-height:38px; padding:0; display:grid; place-items:center; }
+.studio-grid-v10 { display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap:12px; }
+.studio-btn { min-height: 64px; padding: 10px 12px; text-align:left; display:flex; align-items:center; justify-content:space-between; gap:10px; }
+.studio-main { display:flex; align-items:center; gap:10px; min-width:0; text-align:left; }
+.studio-main span:last-child { display:block; min-width:0; }
+.studio-btn .studio-emoji { width:30px; height:30px; border-radius:10px; flex:0 0 auto; }
+.studio-arrow { width:28px; height:28px; border-radius:999px; display:grid; place-items:center; background: rgba(255,255,255,.12); color:#f8fafc; font-size:1rem; flex:0 0 auto; margin-left:auto; }
+.studio-result-empty { margin-top: 20px; padding-top: 22px; border-top:1px solid rgba(255,255,255,.08); text-align:center; color:#d4d9e3; }
+.studio-result-icon { width:48px; height:48px; margin:0 auto 14px; display:grid; place-items:center; }
+.studio-result-icon img { width:2.05rem; height:2.05rem; opacity:.95; }
+.studio-result-empty p { margin:0 auto; max-width: 270px; line-height:1.55; color:#d5dae6; }
+.studio-result-empty strong { color:#f8fafc; }
+body.theme-light .studio-result-empty p { color:#4b5563; }
+body.theme-light .studio-result-empty strong { color:#111827; }
+body.theme-light .source-empty-icon { background:#f3f5fb; }
+body.theme-light .source-chip { border-color:#e5e7eb; background:#fff; color:#111827; }
+body.theme-light .source-search-card .source-search { border-color:#d7ddea; color:#111827; }
+body.theme-light .source-search::placeholder { color:#6b7280; }
+body.theme-light .panel-resizer::after { background:rgba(31,41,55,.08); }
+body.theme-light .collapsed-tool, body.theme-light .collapsed-main-btn { border-color:#e5e7eb; color:#111827; background:#fff; }
+body.theme-light .studio-arrow { background:#e9eef7; color:#111827; }
+@media (max-width: 980px) { .panel-resizer { display:none; } .studio-grid-v10 { grid-template-columns: 1fr 1fr; } }
 
 
-  </style>
+/* ===== v11 fixes ===== */
+.modal-logo-shell { width:min(390px, 92%); height:118px; border-radius:28px; }
+.modal-logo-shell .modal-logo { padding:0 4px; transform:scale(1.14); transform-origin:center; }
+.source-empty-icon img { width:2rem; height:2rem; }
+.source-chip { gap:8px; }
+#providerChip .chip-leading img { content:url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2716%27%20height%3D%2716%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23EAF1FF%27%20stroke-width%3D%271.9%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2712%27%20r%3D%279%27/%3E%3Cpath%20d%3D%27M3%2012h18%27/%3E%3Cpath%20d%3D%27M12%203a15.3%2015.3%200%200%201%200%2018%27/%3E%3Cpath%20d%3D%27M12%203a15.3%2015.3%200%200%200%200%2018%27/%3E%3C/svg%3E'); width:15px; height:15px; }
+#modeChip .chip-leading img { content:url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2716%27%20height%3D%2716%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23EAF1FF%27%20stroke-width%3D%271.9%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%2711%27%20cy%3D%2711%27%20r%3D%276%27/%3E%3Cpath%20d%3D%27m20%2020-3.5-3.5%27/%3E%3Cpath%20d%3D%27M14.5%202.8%2015.2%205l2.2.7-2.2.7-.7%202.2-.7-2.2-2.2-.7%202.2-.7z%27/%3E%3C/svg%3E'); width:15px; height:15px; }
+.source-search-action .search-icon, .chat-send-btn .search-icon { display:grid !important; place-items:center; }
+.source-search-action .send-icon, .chat-send-btn .send-icon { display:none !important; }
+.source-search-card.has-text .source-search-action .search-icon, .chat-input-area.has-text .chat-send-btn .search-icon { display:none !important; }
+.source-search-card.has-text .source-search-action .send-icon, .chat-input-area.has-text .chat-send-btn .send-icon { display:grid !important; place-items:center; }
+.source-search-action .search-icon img { width:1rem; height:1rem; opacity:.95; }
+.chat-send-btn .search-icon svg, .chat-send-btn .send-icon svg, .source-search-action .send-icon svg { width:1rem; height:1rem; }
+.studio-result-empty { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:180px; text-align:center; }
+.studio-result-icon { width:56px; height:56px; border-radius:18px; background:transparent; margin-bottom:10px; }
+.studio-result-icon img { width:2.15rem; height:2.15rem; }
+.studio-result-empty p { max-width:250px; color:#4f6bff; font-weight:600; line-height:1.45; }
+.studio-result-empty strong { color:#4f6bff; }
+.studio-notes-list { display:none; border-top:1px solid rgba(255,255,255,.08); margin-top:18px; padding-top:14px; }
+.studio-notes-list.has-notes { display:block; }
+.studio-note-item { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:12px 8px 16px; }
+.studio-note-main { display:flex; align-items:flex-start; gap:10px; min-width:0; }
+.studio-note-icon { width:28px; height:28px; border-radius:10px; display:grid; place-items:center; color:#fde68a; flex:0 0 auto; }
+.studio-note-title { color:#f8fafc; font-weight:700; font-size:1rem; line-height:1.2; }
+.studio-note-time { color:#aab3c5; font-size:.86rem; margin-top:2px; }
+.studio-note-menu { background:transparent; border:0; color:#cbd5e1; cursor:pointer; font-size:1.35rem; line-height:1; padding:2px 4px; }
+.studio-main { min-width:0; flex:1; }
+.studio-main span:last-child { display:block; min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.studio-btn { justify-content:space-between; }
+body.theme-light .studio-note-title { color:#111827; }
+body.theme-light .studio-note-time { color:#6b7280; }
+body.theme-light .studio-result-empty p, body.theme-light .studio-result-empty strong { color:#3658ff; }
+.share-modal { position:fixed; inset:0; background:rgba(0,0,0,.62); display:none; align-items:center; justify-content:center; padding:16px; z-index:300; }
+.share-modal.active { display:flex; }
+.share-card { width:min(420px, 96vw); background:#131821; color:#f8fafc; border:1px solid rgba(255,255,255,.08); border-radius:18px; box-shadow:0 20px 60px rgba(0,0,0,.45); overflow:hidden; }
+.share-card-header { display:flex; align-items:center; justify-content:space-between; padding:16px 18px; border-bottom:1px solid rgba(255,255,255,.08); font-weight:700; }
+.share-card-header button { background:transparent; border:0; color:#e5e7eb; font-size:1.6rem; cursor:pointer; }
+.share-card-body { padding:16px 18px; }
+.share-field { border:1px solid #7aa2ff; border-radius:16px; height:48px; width:100%; background:transparent; color:#fff; padding:0 14px; margin-top:8px; margin-bottom:18px; }
+.share-section-title { font-size:1rem; font-weight:700; margin:8px 0 14px; }
+.share-user-row, .share-access-row { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.share-user { display:flex; align-items:center; gap:10px; min-width:0; }
+.share-avatar { width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg,#6d28d9,#d946ef); display:grid; place-items:center; font-weight:700; }
+.share-user-meta { min-width:0; }
+.share-user-meta strong, .share-user-meta span { display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.share-user-meta span { color:#aab3c5; font-size:.88rem; }
+.share-subtext { color:#b4bdcc; font-size:.88rem; margin-top:4px; }
+.share-divider { height:1px; background:rgba(255,255,255,.08); margin:16px 0; }
+.share-footer { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:18px; }
+.share-copy, .share-save { border-radius:999px; padding:12px 18px; border:1px solid rgba(255,255,255,.08); cursor:pointer; font-weight:700; }
+.share-copy { background:#0f1520; color:#fff; }
+.share-save { background:rgba(255,255,255,.12); color:#fff; min-width:96px; }
+.share-toggle { display:flex; align-items:center; gap:8px; color:#e5e7eb; font-size:.95rem; }
+
+
+/* ===== v12 final polish ===== */
+.modal-logo-shell { width:min(430px, 94%); height:132px; border-radius:30px; }
+.modal-logo-shell .modal-logo { padding:0; transform:scale(1.22); transform-origin:center; }
+.source-empty-icon { background:#202638 !important; border-radius:18px; width:68px !important; height:68px !important; }
+.source-empty-icon img { width:2.2rem !important; height:2.2rem !important; }
+#providerChip .chip-leading img { content:url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2716%27%20height%3D%2716%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23EAF1FF%27%20stroke-width%3D%271.9%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%2712%27%20cy%3D%2712%27%20r%3D%279%27/%3E%3Cpath%20d%3D%27M3%2012h18%27/%3E%3Cpath%20d%3D%27M12%203a15%2015%200%200%201%200%2018%27/%3E%3Cpath%20d%3D%27M12%203a15%2015%200%200%200%200%2018%27/%3E%3C/svg%3E'); width:15px !important; height:15px !important; }
+#modeChip .chip-leading img { content:url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2716%27%20height%3D%2716%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23EAF1FF%27%20stroke-width%3D%271.9%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%2711%27%20cy%3D%2711%27%20r%3D%276%27/%3E%3Cpath%20d%3D%27m20%2020-3.5-3.5%27/%3E%3Cpath%20d%3D%27M15%202.8%2015.7%205l2.2.7-2.2.7-.7%202.2-.7-2.2-2.2-.7%202.2-.7z%27/%3E%3C/svg%3E'); width:15px !important; height:15px !important; }
+.source-dropdown button[data-mode="Deep Research"] img { content:url('data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2716%27%20height%3D%2716%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23F8FAFC%27%20stroke-width%3D%271.9%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Ccircle%20cx%3D%2710%27%20cy%3D%2710%27%20r%3D%275.5%27/%3E%3Cpath%20d%3D%27m21%2021-4-4%27/%3E%3Cpath%20d%3D%27M4.5%2010h11%27/%3E%3Cpath%20d%3D%27M10%204.5a9%209%200%200%201%200%2011%27/%3E%3Cpath%20d%3D%27M10%204.5a9%209%200%200%200%200%2011%27/%3E%3C/svg%3E'); filter:none; opacity:1; }
+.source-dropdown button.active { background:rgba(79,107,255,.18); color:#fff; }
+.source-search-action, .chat-send-btn { position:relative; overflow:hidden; }
+.source-search-action .search-icon,
+.chat-send-btn .search-icon,
+.source-search-action .send-icon,
+.chat-send-btn .send-icon { position:absolute; inset:0; display:grid !important; place-items:center; transition:opacity .16s ease, transform .16s ease; }
+.source-search-action .search-icon img,
+.chat-send-btn .search-icon img,
+.source-search-action .send-icon img,
+.chat-send-btn .send-icon img { width:18px; height:18px; display:block; }
+.source-search-action .send-icon,
+.chat-send-btn .send-icon { opacity:0; transform:translateX(-2px); pointer-events:none; }
+.source-search-card.has-text .source-search-action .search-icon,
+.chat-input-area.has-text .chat-send-btn .search-icon { opacity:0; transform:translateX(2px); pointer-events:none; }
+.source-search-card.has-text .source-search-action .send-icon,
+.chat-input-area.has-text .chat-send-btn .send-icon { opacity:1; transform:translateX(0); }
+.studio-result-empty { display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:210px; text-align:center; }
+.studio-result-icon { width:58px; height:58px; border-radius:18px; background:transparent; margin-bottom:12px; }
+.studio-result-icon img { width:2.3rem !important; height:2.3rem !important; }
+.studio-result-empty p { max-width:270px; color:#4F6BFF !important; font-weight:650; line-height:1.48; }
+.studio-result-empty strong { color:#4F6BFF !important; }
+.studio-main { min-width:0; flex:1; }
+.studio-main span:last-child { display:block; min-width:0; max-width:100%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.studio-btn { min-width:0; }
+.studio-arrow { flex:0 0 30px; }
+.studio-notes-list.has-notes + .studio-result-empty { display:none !important; }
+.studio-note-item { min-height:74px; display:flex; align-items:flex-start; justify-content:space-between; gap:12px; padding:16px 8px; }
+.studio-note-main { display:flex; gap:12px; min-width:0; }
+.studio-note-icon { width:28px; height:28px; border-radius:9px; color:#fde68a; display:grid; place-items:center; flex:0 0 auto; }
+.studio-note-title { color:#f8fafc; font-size:1rem; font-weight:750; line-height:1.15; }
+.studio-note-time { color:#a9b3c5; font-size:.86rem; margin-top:2px; }
+.studio-note-menu { border:0; background:transparent; color:#d1d5db; cursor:pointer; font-size:1.45rem; line-height:1; padding:0 4px; }
+.panel-resizer { width:14px; }
+.panel-resizer.handle-right { right:-7px; }
+.panel-resizer.handle-left { left:-7px; }
+.panel-resizer::after { left:6px; width:2px; opacity:.65; }
+.panel-resizer:hover::before { content:'arraste'; position:absolute; top:50%; transform:translateY(-50%); left:10px; font-size:10px; color:#c4b5fd; background:#111827; border:1px solid rgba(255,255,255,.12); border-radius:999px; padding:3px 7px; white-space:nowrap; }
+.handle-left:hover::before { left:auto; right:10px; }
+.share-modal { position:fixed; inset:0; background:rgba(0,0,0,.62); display:none; align-items:center; justify-content:center; padding:16px; z-index:500; }
+.share-modal.active { display:flex; }
+.share-card { width:min(430px,96vw); background:#111417; color:#f8fafc; border:1px solid rgba(255,255,255,.10); border-radius:18px; box-shadow:0 26px 80px rgba(0,0,0,.58); overflow:hidden; }
+.share-card-header { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 18px; border-bottom:1px solid rgba(255,255,255,.10); }
+.share-title { display:flex; align-items:center; gap:10px; font-weight:750; }
+.share-title-icon { font-size:1.3rem; }
+.share-close { border:0; background:transparent; color:#e5e7eb; font-size:1.65rem; cursor:pointer; line-height:1; }
+.share-card-body { padding:16px 18px; }
+.share-label { display:block; color:#bfd1ff; font-size:.88rem; margin:0 0 -4px 16px; background:#111417; width:max-content; padding:0 4px; position:relative; z-index:1; }
+.share-field { width:100%; height:54px; border:2px solid #9bbcff; border-radius:16px; background:#111417; color:#fff; outline:0; padding:0 14px; margin-bottom:22px; }
+.share-row-title { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:12px; }
+.share-row-title strong, .share-section-title { color:#fff; font-weight:750; }
+.share-toggle { display:flex; align-items:center; gap:8px; color:#f8fafc; font-size:.88rem; }
+.share-toggle input { accent-color:#4f6bff; }
+.share-user-row, .share-access-row { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.share-user { display:flex; align-items:center; gap:10px; min-width:0; }
+.share-avatar { width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg,#312e81,#9333ea); display:grid; place-items:center; color:#fff; font-weight:800; }
+.share-user-meta { min-width:0; }
+.share-user-meta strong, .share-user-meta span { display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.share-user-meta span { color:#a8b0bf; font-size:.86rem; }
+.share-owner { border:0; background:transparent; color:#a8b0bf; cursor:pointer; }
+.share-divider { height:1px; background:rgba(255,255,255,.12); margin:18px 0; }
+.share-section-title { margin:0 0 12px; }
+.share-lock { width:42px; height:42px; border-radius:50%; background:#20252c; display:grid; place-items:center; flex:0 0 auto; }
+.share-access-text { flex:1; min-width:0; }
+.share-access-text strong, .share-access-text span { display:block; }
+.share-access-text span { color:#b7bfcd; font-size:.88rem; margin-top:3px; }
+.share-dropdown-caret { color:#cbd5e1; }
+.share-footer { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:22px; }
+.share-copy, .share-save { border-radius:999px; padding:12px 18px; border:1px solid rgba(255,255,255,.14); cursor:pointer; font-weight:750; }
+.share-copy { background:#101317; color:#fff; min-width:178px; }
+.share-save { background:#34363c; color:#f8fafc; min-width:92px; border-color:transparent; }
+body.theme-light .share-card, body.theme-light .share-field, body.theme-light .share-label { background:#fff; color:#111827; }
+body.theme-light .share-card { border-color:#e5e7eb; }
+body.theme-light .share-card-header, body.theme-light .share-divider { border-color:#e5e7eb; background:transparent; }
+body.theme-light .share-row-title strong, body.theme-light .share-section-title { color:#111827; }
+body.theme-light .share-copy { background:#fff; color:#111827; border-color:#d1d5db; }
+body.theme-light .share-save { background:#e5e7eb; color:#111827; }
+
+
+/* ===== v13 corrections ===== */
+#providerChip .chip-leading img,
+#modeChip .chip-leading img {
+  content: none !important;
+}
+.source-dropdown button img {
+  content: none !important;
+  width: 1.05rem;
+  height: 1.05rem;
+  display: block;
+  opacity: 1;
+}
+#providerChip .chip-leading img,
+#modeChip .chip-leading img,
+.chip-img-icon {
+  width: 1rem !important;
+  height: 1rem !important;
+  display:block;
+}
+.source-dropdown button.active {
+  background: rgba(79,107,255,.18);
+}
+.source-search-action .search-icon,
+.chat-send-btn .search-icon,
+.source-search-action .send-icon,
+.chat-send-btn .send-icon {
+  position:absolute;
+  inset:0;
+  display:grid !important;
+  place-items:center;
+}
+.source-search-action .search-icon img,
+.chat-send-btn .search-icon img,
+.source-search-action .send-icon img,
+.chat-send-btn .send-icon img {
+  width:18px;
+  height:18px;
+  display:block;
+}
+.source-search-action .send-icon,
+.chat-send-btn .send-icon {
+  opacity:0;
+  pointer-events:none;
+}
+.source-search-card.has-text .source-search-action .search-icon,
+.chat-input-area.has-text .chat-send-btn .search-icon {
+  opacity:0;
+  pointer-events:none;
+}
+.source-search-card.has-text .source-search-action .send-icon,
+.chat-input-area.has-text .chat-send-btn .send-icon {
+  opacity:1;
+}
+.share-title-img {
+  width: 1.25rem;
+  height: 1.25rem;
+  display:block;
+}
+.share-title-icon {
+  display:none;
+}
+.share-avatar {
+  width: 42px;
+  height: 42px;
+  font-size:.9rem;
+}
+.share-access-wrap {
+  position: relative;
+}
+.share-access-row {
+  width:100%;
+  border:0;
+  background:transparent;
+  color:inherit;
+  padding:0;
+  cursor:pointer;
+  text-align:left;
+}
+.share-access-menu {
+  position:absolute;
+  left:44px;
+  top:calc(100% + 8px);
+  width:min(260px, calc(100% - 44px));
+  background:#2b2c31;
+  color:#f8fafc;
+  border:2px solid #b8c4ff;
+  border-radius:3px;
+  box-shadow:0 18px 48px rgba(0,0,0,.35);
+  padding:0;
+  display:none;
+  z-index:20;
+  overflow:hidden;
+}
+.share-access-menu.active {
+  display:block;
+}
+.share-access-menu button {
+  width:100%;
+  border:0;
+  background:transparent;
+  color:#f8fafc;
+  padding:11px 14px;
+  text-align:left;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  cursor:pointer;
+  font-size:1rem;
+}
+.share-access-menu button:hover,
+.share-access-menu button.active {
+  background:#3a3a3f;
+}
+.share-access-menu button b {
+  opacity:0;
+  color:#bfdbfe;
+  font-size:1.1rem;
+}
+.share-access-menu button.active b {
+  opacity:1;
+}
+.share-lock {
+  color:#facc15;
+}
+.share-section-title {
+  margin-bottom:12px;
+}
+.studio-result-empty {
+  min-height:210px;
+  color:#f8fafc !important;
+}
+.studio-result-icon img {
+  width:2.25rem !important;
+  height:2.25rem !important;
+}
+.studio-result-empty p {
+  color:#f8fafc !important;
+  font-weight:500 !important;
+}
+.studio-result-empty strong {
+  color:#f8fafc !important;
+  font-weight:800 !important;
+}
+.studio-notes-list.has-notes + .studio-result-empty {
+  display:none !important;
+}
+.studio-note-actions {
+  position:relative;
+  margin-left:auto;
+}
+.note-actions-menu {
+  position:absolute;
+  right:0;
+  top:calc(100% + 8px);
+  width:160px;
+  background:#fff;
+  color:#596274;
+  border:1px solid rgba(15,23,42,.08);
+  box-shadow:0 18px 45px rgba(0,0,0,.22);
+  border-radius:16px;
+  padding:8px;
+  display:none;
+  z-index:50;
+}
+.note-actions-menu.active {
+  display:block;
+}
+.note-actions-menu button {
+  width:100%;
+  border:0;
+  background:transparent;
+  color:#596274;
+  border-radius:10px;
+  padding:10px 12px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  cursor:pointer;
+  font-weight:800;
+  text-align:left;
+}
+.note-actions-menu button:hover {
+  background:#f1f5f9;
+}
+.studio-note-icon {
+  background:transparent !important;
+  color:#facc15 !important;
+  font-size:1rem;
+}
+.studio-note-title:focus {
+  outline:1px solid rgba(96,165,250,.7);
+  border-radius:6px;
+  padding:2px 4px;
+  margin:-2px -4px;
+}
+body.theme-light .share-access-menu {
+  background:#fff;
+  color:#111827;
+  border-color:#93c5fd;
+}
+body.theme-light .share-access-menu button {
+  color:#111827;
+}
+body.theme-light .share-access-menu button:hover,
+body.theme-light .share-access-menu button.active {
+  background:#eef2ff;
+}
+body.theme-light .studio-result-empty p,
+body.theme-light .studio-result-empty strong {
+  color:#111827 !important;
+}
+
+
+/* ===== v14 final visibility fixes ===== */
+
+/* Share dropdown: não corta dentro do modal */
+.share-modal,
+.share-card,
+.share-card-body,
+.share-access-wrap {
+  overflow: visible !important;
+}
+.share-card {
+  position: relative;
+}
+.share-access-menu {
+  z-index: 9999 !important;
+  top: calc(100% + 8px) !important;
+  left: 50px !important;
+  width: min(270px, calc(100vw - 110px)) !important;
+  box-shadow: 0 24px 70px rgba(0,0,0,.48) !important;
+}
+.share-access-menu button {
+  min-height: 46px;
+}
+.share-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* Modo claro: contraste geral */
+body.theme-light {
+  color: #111827;
+}
+body.theme-light .app-header,
+body.theme-light .workspace-panel,
+body.theme-light .chat-main,
+body.theme-light .chat-toolbar,
+body.theme-light .chat-content,
+body.theme-light .panel-head,
+body.theme-light .panel-body,
+body.theme-light .source-meta,
+body.theme-light .add-note {
+  color: #111827;
+}
+body.theme-light .panel-head h2,
+body.theme-light .sidebar-right .panel-head h2,
+body.theme-light .chat-title strong,
+body.theme-light .chat-title small,
+body.theme-light .source-item span:nth-child(2),
+body.theme-light .source-empty,
+body.theme-light .source-empty strong,
+body.theme-light .source-empty p,
+body.theme-light .studio-group-title,
+body.theme-light .studio-note-title,
+body.theme-light .studio-note-time,
+body.theme-light .studio-result-empty p,
+body.theme-light .studio-result-empty strong,
+body.theme-light .dashboard-footer-note,
+body.theme-light .dashboard-footer-note strong {
+  color: #111827 !important;
+  opacity: 1 !important;
+}
+
+/* Botões e chips do modo claro */
+body.theme-light .btn-add-source {
+  color: #111827 !important;
+  background: #ffffff !important;
+  border-color: #d7ddea !important;
+  opacity: 1 !important;
+}
+body.theme-light .source-chip,
+body.theme-light .source-dropdown button,
+body.theme-light .pill-btn,
+body.theme-light .panel-icon-btn,
+body.theme-light .chat-action,
+body.theme-light .source-search-action,
+body.theme-light .chat-send-btn {
+  color: #111827 !important;
+  opacity: 1 !important;
+}
+body.theme-light .source-search,
+body.theme-light .source-search::placeholder,
+body.theme-light .chat-input-area input,
+body.theme-light .chat-input-area input::placeholder {
+  color: #374151 !important;
+  opacity: 1 !important;
+}
+body.theme-light .source-search-card {
+  background: #f3f6fb !important;
+  border-color: #dfe6f2 !important;
+}
+body.theme-light .source-dropdown {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border-color: #d7ddea !important;
+  box-shadow: 0 18px 46px rgba(15,23,42,.18) !important;
+}
+body.theme-light .source-dropdown strong,
+body.theme-light .source-dropdown small {
+  color: #111827 !important;
+  opacity: 1 !important;
+}
+body.theme-light .source-dropdown button:hover,
+body.theme-light .source-dropdown button.active {
+  background: #eef2ff !important;
+}
+
+/* Estúdio em modo claro: mantém cores, mas texto fica legível */
+body.theme-light .studio-btn {
+  color: #111827 !important;
+  opacity: 1 !important;
+}
+body.theme-light .studio-btn span,
+body.theme-light .studio-main span:last-child {
+  color: #111827 !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+body.theme-light .studio-btn .studio-emoji {
+  color: #111827 !important;
+  background: rgba(255,255,255,.55) !important;
+}
+body.theme-light .studio-arrow {
+  color: #111827 !important;
+  background: rgba(255,255,255,.72) !important;
+}
+body.theme-light .collapsed-tool span,
+body.theme-light .collapsed-tool b {
+  color: #111827 !important;
+}
+
+/* Mensagens e cards do chat em modo claro */
+body.theme-light .msg,
+body.theme-light .msg.ai,
+body.theme-light .msg.user,
+body.theme-light .empty-state,
+body.theme-light .empty-state h2,
+body.theme-light .empty-state p,
+body.theme-light .upload-icon,
+body.theme-light .quick-prompts button {
+  color: #111827 !important;
+  opacity: 1 !important;
+}
+body.theme-light .msg.ai {
+  background: #ffffff !important;
+  border-color: #d9e2f0 !important;
+}
+body.theme-light .msg.user {
+  color: #ffffff !important;
+}
+body.theme-light .chat-status {
+  color: #16a34a !important;
+}
+
+/* Dashboard em modo claro */
+body.theme-light .dashboard-view,
+body.theme-light .dashboard-hero,
+body.theme-light .dashboard-title,
+body.theme-light .dashboard-title h1,
+body.theme-light .dashboard-title p,
+body.theme-light .dashboard-pill,
+body.theme-light .chat-card,
+body.theme-light .chat-card h3,
+body.theme-light .chat-card p,
+body.theme-light .card-menu-btn {
+  color: #111827 !important;
+  opacity: 1 !important;
+}
+body.theme-light .chat-card {
+  background: #ffffff !important;
+  border-color: #dfe6f2 !important;
+}
+body.theme-light .card-badge {
+  opacity: 1 !important;
+}
+
+/* Compartilhamento em modo claro */
+body.theme-light .share-card,
+body.theme-light .share-field,
+body.theme-light .share-label {
+  background: #ffffff !important;
+  color: #111827 !important;
+}
+body.theme-light .share-title,
+body.theme-light .share-row-title strong,
+body.theme-light .share-section-title,
+body.theme-light .share-user-meta strong,
+body.theme-light .share-access-text strong,
+body.theme-light .share-toggle,
+body.theme-light .share-close {
+  color: #111827 !important;
+}
+body.theme-light .share-user-meta span,
+body.theme-light .share-access-text span,
+body.theme-light .share-owner,
+body.theme-light .share-subtext {
+  color: #4b5563 !important;
+}
+body.theme-light .share-access-menu {
+  background: #ffffff !important;
+  color: #111827 !important;
+  border-color: #93c5fd !important;
+}
+body.theme-light .share-access-menu button {
+  color: #111827 !important;
+}
+body.theme-light .share-access-menu button:hover,
+body.theme-light .share-access-menu button.active {
+  background: #eef2ff !important;
+}
+
+/* Ícones SVG com currentColor ficam visíveis */
+body.theme-light .inline-svg,
+body.theme-light .chip-img-icon,
+body.theme-light .search-img-icon {
+  color: #111827;
+}
+
+
+/* ===== v15 final retouches ===== */
+
+/* Links/termos clicáveis */
+.terms-link,
+.footer-linklike {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  font-weight: 900;
+  cursor: pointer;
+  text-decoration: none;
+}
+.terms-link:hover,
+.footer-linklike:hover {
+  text-decoration: underline;
+}
+
+/* Modo claro: botões/3 pontos/ícones que ainda ficavam brancos */
+body.theme-light .chat-toolbar .chat-icon-btn,
+body.theme-light .chat-menu-wrap .chat-icon-btn,
+body.theme-light .card-menu-btn,
+body.theme-light .studio-note-menu,
+body.theme-light .note-actions-menu button,
+body.theme-light .panel-icon-btn,
+body.theme-light .settings-row,
+body.theme-light .settings-icon,
+body.theme-light .row-caret {
+  color: #111827 !important;
+  opacity: 1 !important;
+}
+
+/* Ícones de Fontes no modo claro: Web/Pesquisa/Deep visíveis em preto */
+body.theme-light #providerChip .chip-leading img,
+body.theme-light #modeChip .chip-leading img,
+body.theme-light #web-source-menu button[data-mode="Web"] img,
+body.theme-light #quick-source-menu button[data-mode="Pesquisa rápida"] img,
+body.theme-light #quick-source-menu button[data-mode="Deep Research"] img,
+body.theme-light .source-search-action .search-icon img,
+body.theme-light .chat-send-btn .search-icon img {
+  filter: brightness(0) saturate(100%) !important;
+  opacity: 1 !important;
+}
+
+/* Drive continua com as cores próprias */
+body.theme-light #web-source-menu button[data-mode="Drive"] img,
+body.theme-light #providerChip .chip-leading img[src*="PHN2Zy"] {
+  filter: none;
+}
+
+/* Ícone do resultado do Estúdio escuro no modo claro */
+body.theme-light .studio-result-icon img {
+  filter: brightness(0) saturate(100%) !important;
+  opacity: .72 !important;
+}
+
+/* Estúdio e notas mais legíveis no modo claro */
+body.theme-light .studio-note-menu {
+  color: #111827 !important;
+}
+body.theme-light .studio-note-icon {
+  color: #facc15 !important;
+}
+body.theme-light .studio-result-empty p,
+body.theme-light .studio-result-empty strong {
+  color: #111827 !important;
+}
+
+/* Footer da landing com botões alinhados como links */
+.footer-col .footer-linklike {
+  color: inherit;
+  text-align: left;
+}
+.footer-col li {
+  list-style: none;
+}
+
+/* Checkbox dos termos alinhado com a frase */
+.terms {
+  align-items: flex-start;
+}
+.terms input[type="checkbox"] {
+  margin-top: .22rem;
+  flex: 0 0 auto;
+}
+
+</style>
 </head>
 <body>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
@@ -703,9 +1538,9 @@
           </article>
 
           <div id="mvv" class="mvv-grid">
-            <article class="mvv-card"><div class="mvv-icon">M</div><h3>Missão</h3><p>Simplificar a rotina jurídica com IA acessível, organizada e segura para criação de relatórios, peças e análises.</p></article>
-            <article class="mvv-card"><div class="mvv-icon">V</div><h3>Visão</h3><p>Ser referência em experiências digitais jurídicas com linguagem clara, alta usabilidade e foco em privacidade.</p></article>
-            <article class="mvv-card"><div class="mvv-icon">+</div><h3>Valores</h3><p>Sigilo, responsabilidade, eficiência, acessibilidade visual, transparência e respeito à análise técnica do usuário.</p></article>
+            <article class="mvv-card"><div class="mvv-icon emoji-icon" aria-hidden="true">🎯</div><h3>Missão</h3><p>Simplificar a rotina jurídica com IA acessível, organizada e segura para criação de relatórios, peças e análises.</p></article>
+            <article class="mvv-card"><div class="mvv-icon emoji-icon" aria-hidden="true">🔭</div><h3>Visão</h3><p>Ser referência em experiências digitais jurídicas com linguagem clara, alta usabilidade e foco em privacidade.</p></article>
+            <article class="mvv-card"><div class="mvv-icon emoji-icon" aria-hidden="true">⚖️</div><h3>Valores</h3><p>Sigilo, responsabilidade, eficiência, acessibilidade visual, transparência e respeito à análise técnica do usuário.</p></article>
           </div>
         </div>
       </section>
@@ -853,7 +1688,7 @@
         </div>
         <div class="footer-col">
           <h3>Políticas</h3>
-          <ul><li><a href="#faq">Termos de Uso</a></li><li><a href="#faq">Privacidade</a></li><li><a href="#faq">LGPD</a></li></ul>
+          <ul><li><button class="footer-linklike" onclick="openUtilityModal('legal')">Termos de Uso</button></li><li><button class="footer-linklike" onclick="openUtilityModal('privacy')">Privacidade</button></li><li><button class="footer-linklike" onclick="openUtilityModal('privacy')">LGPD</button></li></ul>
         </div>
       </div>
       <div class="container footer-bottom">© 2026 Juris-Private. Protótipo acadêmico.</div>
@@ -875,10 +1710,10 @@
 	<path fill="currentColor" d="M259.1 73.5c3-14.8 16.1-25.5 31.3-25.5h59.8c15.2 0 28.3 10.7 31.3 25.5l14.5 70c14.1 6 27.3 13.7 39.3 22.8l67.8-22.5c14.4-4.8 30.2 1.2 37.8 14.4l29.9 51.8c7.6 13.2 4.9 29.8-6.5 39.9L511 297.3c.9 7.4 1.3 15 1.3 22.7s-.5 15.3-1.3 22.7l53.4 47.5c11.4 10.1 14 26.8 6.5 39.9L541 481.9c-7.6 13.1-23.4 19.2-37.8 14.4l-67.8-22.5c-12.1 9.1-25.3 16.7-39.3 22.8l-14.4 69.9c-3.1 14.9-16.2 25.5-31.3 25.5h-59.8c-15.2 0-28.3-10.7-31.3-25.5l-14.4-69.9c-14.1-6-27.2-13.7-39.3-22.8l-68.1 22.5c-14.4 4.8-30.2-1.2-37.8-14.4l-29.9-51.8c-7.6-13.2-4.9-29.8 6.5-39.9l53.4-47.5c-.9-7.4-1.3-15-1.3-22.7s.5-15.3 1.3-22.7l-53.4-47.5c-11.4-10.1-14-26.8-6.5-39.9l29.9-51.8c7.6-13.2 23.4-19.2 37.8-14.4l67.8 22.5c12.1-9.1 25.3-16.7 39.3-22.8zM320.3 400c44.2-.2 79.9-36.1 79.7-80.3s-36.1-79.9-80.3-79.7s-79.9 36.1-79.7 80.3s36.1 79.9 80.3 79.7" />
 </svg></span> Configurações</button>
             <div class="settings-menu" id="settings-dashboard" aria-label="Menu de configurações">
-              <button class="settings-row" onclick="showToast('Feedback demonstrativo aberto.')">💬 <span>Enviar feedback</span></button>
+              <button class="settings-row" onclick="openUtilityModal('feedback')">💬 <span>Enviar feedback</span></button>
               <button class="settings-row" onclick="showToast('Facebook demonstrativo aberto.')"><span class="settings-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95" /></svg></span><span>Facebook</span></button>
-              <button class="settings-row" onclick="showToast('Idioma da resposta definido para português.')">🌐 <span>Idioma da resposta</span></button>
-              <button class="settings-row" onclick="showToast('Licenças demonstrativas abertas.')"><span class="settings-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" d="M9 10a3.04 3.04 0 0 1 3-3a3.04 3.04 0 0 1 3 3a3.04 3.04 0 0 1-3 3a3.04 3.04 0 0 1-3-3m3 9l4 1v-3.08A7.54 7.54 0 0 1 12 18a7.54 7.54 0 0 1-4-1.08V20m4-16a5.78 5.78 0 0 0-4.24 1.74A5.78 5.78 0 0 0 6 10a5.78 5.78 0 0 0 1.76 4.23A5.78 5.78 0 0 0 12 16a5.78 5.78 0 0 0 4.24-1.77A5.78 5.78 0 0 0 18 10a5.78 5.78 0 0 0-1.76-4.26A5.78 5.78 0 0 0 12 4m8 6a8 8 0 0 1-.57 2.8A7.8 7.8 0 0 1 18 15.28V23l-6-2l-6 2v-7.72A7.9 7.9 0 0 1 4 10a7.68 7.68 0 0 1 2.33-5.64A7.73 7.73 0 0 1 12 2a7.73 7.73 0 0 1 5.67 2.36A7.68 7.68 0 0 1 20 10" /></svg></span><span>Licenças</span></button>
+              <button class="settings-row" onclick="openUtilityModal('language')">🌐 <span>Idioma da resposta</span></button>
+              <button class="settings-row" onclick="openUtilityModal('legal')"><span class="settings-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" d="M9 10a3.04 3.04 0 0 1 3-3a3.04 3.04 0 0 1 3 3a3.04 3.04 0 0 1-3 3a3.04 3.04 0 0 1-3-3m3 9l4 1v-3.08A7.54 7.54 0 0 1 12 18a7.54 7.54 0 0 1-4-1.08V20m4-16a5.78 5.78 0 0 0-4.24 1.74A5.78 5.78 0 0 0 6 10a5.78 5.78 0 0 0 1.76 4.23A5.78 5.78 0 0 0 12 16a5.78 5.78 0 0 0 4.24-1.77A5.78 5.78 0 0 0 18 10a5.78 5.78 0 0 0-1.76-4.26A5.78 5.78 0 0 0 12 4m8 6a8 8 0 0 1-.57 2.8A7.8 7.8 0 0 1 18 15.28V23l-6-2l-6 2v-7.72A7.9 7.9 0 0 1 4 10a7.68 7.68 0 0 1 2.33-5.64A7.73 7.73 0 0 1 12 2a7.73 7.73 0 0 1 5.67 2.36A7.68 7.68 0 0 1 20 10" /></svg></span><span>Licenças</span></button>
               <button class="settings-row device-row" type="button"><span class="settings-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 12a4 4 0 1 1-8 0a4 4 0 0 1 8 0m-4-9v2m0 14.004v2M5 12H3m18 0h-2m0-7l-2 2M5 5l2 2m0 10l-2 2m14 0l-2-2" /></svg></span><span>Dispositivo</span><span class="row-caret">›</span></button>
               <div class="settings-submenu">
                 <button class="settings-row" onclick="setThemeDemo('claro')"><span class="settings-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 12a4 4 0 1 1-8 0a4 4 0 0 1 8 0m-4-9v2m0 14.004v2M5 12H3m18 0h-2m0-7l-2 2M5 5l2 2m0 10l-2 2m14 0l-2-2" /></svg></span><span>Modo claro</span></button>
@@ -887,7 +1722,6 @@
               </div>
             </div>
           </div>
-        <button class="icon-btn" onclick="showToast('Menu de aplicativos demonstrativo.')" aria-label="Aplicativos">⋮⋮</button>
         <div class="avatar" title="Usuário demonstrativo">JD</div>
       </div>
     </header>
@@ -939,7 +1773,7 @@
             <p style="margin-top:16px;font-size:.84rem;">18 de abr. de 2026</p>
           </article>
         </div>
-        <div class="dashboard-footer-note">O Chat Jurídico com <strong>Sigilo Absoluto</strong><br><small>Ao utilizar a Juris-Private, você concorda com os Termos de Uso e a Política de Privacidade.</small></div>
+        <div class="dashboard-footer-note">O Chat Jurídico com <strong>Sigilo Absoluto</strong><br><small>Ao utilizar a Juris-Private, você concorda com <button class="footer-linklike" onclick="openUtilityModal('legal')">Termos de Uso</button> e <button class="footer-linklike" onclick="openUtilityModal('privacy')">Política de Privacidade</button>.</small></div>
       </div>
     </main>
   </div>
@@ -963,7 +1797,7 @@
 	</g>
 </svg></span> Voltar</button>
         <button class="pill-btn light" onclick="startNewChat()">+ Criar Novo</button>
-        <button class="pill-btn share-btn" onclick="showToast('Link de compartilhamento copiado — demonstração.')"><span class="btn-icon"><svg class="inline-svg" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+        <button class="pill-btn share-btn" onclick="openShareModal()"><span class="btn-icon"><svg class="inline-svg" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
 	<path d="M0 0h24v24H0z" fill="none" />
 	<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10.308 13.692l4.846-4.846M20.11 5.89l-4.09 13.294c-.367 1.192-.55 1.788-.867 1.985a1 1 0 0 1-.912.076c-.344-.143-.624-.7-1.182-1.816l-2.59-5.182a2 2 0 0 0-.193-.342a1 1 0 0 0-.18-.181a2 2 0 0 0-.331-.186L4.572 10.94c-1.115-.558-1.673-.837-1.816-1.181a1 1 0 0 1 .076-.913c.197-.316.793-.5 1.985-.867l13.295-4.09c.937-.289 1.405-.433 1.722-.316a1 1 0 0 1 .594.594c.116.316-.028.784-.316 1.72z" />
 </svg></span> Compartilhar</button>
@@ -974,10 +1808,10 @@
 	<path fill="currentColor" d="M259.1 73.5c3-14.8 16.1-25.5 31.3-25.5h59.8c15.2 0 28.3 10.7 31.3 25.5l14.5 70c14.1 6 27.3 13.7 39.3 22.8l67.8-22.5c14.4-4.8 30.2 1.2 37.8 14.4l29.9 51.8c7.6 13.2 4.9 29.8-6.5 39.9L511 297.3c.9 7.4 1.3 15 1.3 22.7s-.5 15.3-1.3 22.7l53.4 47.5c11.4 10.1 14 26.8 6.5 39.9L541 481.9c-7.6 13.1-23.4 19.2-37.8 14.4l-67.8-22.5c-12.1 9.1-25.3 16.7-39.3 22.8l-14.4 69.9c-3.1 14.9-16.2 25.5-31.3 25.5h-59.8c-15.2 0-28.3-10.7-31.3-25.5l-14.4-69.9c-14.1-6-27.2-13.7-39.3-22.8l-68.1 22.5c-14.4 4.8-30.2-1.2-37.8-14.4l-29.9-51.8c-7.6-13.2-4.9-29.8 6.5-39.9l53.4-47.5c-.9-7.4-1.3-15-1.3-22.7s.5-15.3 1.3-22.7l-53.4-47.5c-11.4-10.1-14-26.8-6.5-39.9l29.9-51.8c7.6-13.2 23.4-19.2 37.8-14.4l67.8 22.5c12.1-9.1 25.3-16.7 39.3-22.8zM320.3 400c44.2-.2 79.9-36.1 79.7-80.3s-36.1-79.9-80.3-79.7s-79.9 36.1-79.7 80.3s36.1 79.9 80.3 79.7" />
 </svg></span> Configurações</button>
             <div class="settings-menu" id="settings-dashboard" aria-label="Menu de configurações">
-              <button class="settings-row" onclick="showToast('Feedback demonstrativo aberto.')">💬 <span>Enviar feedback</span></button>
+              <button class="settings-row" onclick="openUtilityModal('feedback')">💬 <span>Enviar feedback</span></button>
               <button class="settings-row" onclick="showToast('Facebook demonstrativo aberto.')"><span class="settings-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95" /></svg></span><span>Facebook</span></button>
-              <button class="settings-row" onclick="showToast('Idioma da resposta definido para português.')">🌐 <span>Idioma da resposta</span></button>
-              <button class="settings-row" onclick="showToast('Licenças demonstrativas abertas.')"><span class="settings-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" d="M9 10a3.04 3.04 0 0 1 3-3a3.04 3.04 0 0 1 3 3a3.04 3.04 0 0 1-3 3a3.04 3.04 0 0 1-3-3m3 9l4 1v-3.08A7.54 7.54 0 0 1 12 18a7.54 7.54 0 0 1-4-1.08V20m4-16a5.78 5.78 0 0 0-4.24 1.74A5.78 5.78 0 0 0 6 10a5.78 5.78 0 0 0 1.76 4.23A5.78 5.78 0 0 0 12 16a5.78 5.78 0 0 0 4.24-1.77A5.78 5.78 0 0 0 18 10a5.78 5.78 0 0 0-1.76-4.26A5.78 5.78 0 0 0 12 4m8 6a8 8 0 0 1-.57 2.8A7.8 7.8 0 0 1 18 15.28V23l-6-2l-6 2v-7.72A7.9 7.9 0 0 1 4 10a7.68 7.68 0 0 1 2.33-5.64A7.73 7.73 0 0 1 12 2a7.73 7.73 0 0 1 5.67 2.36A7.68 7.68 0 0 1 20 10" /></svg></span><span>Licenças</span></button>
+              <button class="settings-row" onclick="openUtilityModal('language')">🌐 <span>Idioma da resposta</span></button>
+              <button class="settings-row" onclick="openUtilityModal('legal')"><span class="settings-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" d="M9 10a3.04 3.04 0 0 1 3-3a3.04 3.04 0 0 1 3 3a3.04 3.04 0 0 1-3 3a3.04 3.04 0 0 1-3-3m3 9l4 1v-3.08A7.54 7.54 0 0 1 12 18a7.54 7.54 0 0 1-4-1.08V20m4-16a5.78 5.78 0 0 0-4.24 1.74A5.78 5.78 0 0 0 6 10a5.78 5.78 0 0 0 1.76 4.23A5.78 5.78 0 0 0 12 16a5.78 5.78 0 0 0 4.24-1.77A5.78 5.78 0 0 0 18 10a5.78 5.78 0 0 0-1.76-4.26A5.78 5.78 0 0 0 12 4m8 6a8 8 0 0 1-.57 2.8A7.8 7.8 0 0 1 18 15.28V23l-6-2l-6 2v-7.72A7.9 7.9 0 0 1 4 10a7.68 7.68 0 0 1 2.33-5.64A7.73 7.73 0 0 1 12 2a7.73 7.73 0 0 1 5.67 2.36A7.68 7.68 0 0 1 20 10" /></svg></span><span>Licenças</span></button>
               <button class="settings-row device-row" type="button"><span class="settings-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 12a4 4 0 1 1-8 0a4 4 0 0 1 8 0m-4-9v2m0 14.004v2M5 12H3m18 0h-2m0-7l-2 2M5 5l2 2m0 10l-2 2m14 0l-2-2" /></svg></span><span>Dispositivo</span><span class="row-caret">›</span></button>
               <div class="settings-submenu">
                 <button class="settings-row" onclick="setThemeDemo('claro')"><span class="settings-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 12a4 4 0 1 1-8 0a4 4 0 0 1 8 0m-4-9v2m0 14.004v2M5 12H3m18 0h-2m0-7l-2 2M5 5l2 2m0 10l-2 2m14 0l-2-2" /></svg></span><span>Modo claro</span></button>
@@ -989,31 +1823,48 @@
         <div class="avatar">JD</div>
       </div>
     </header>
-    <main class="workspace">
-      <aside class="workspace-panel sidebar-left">
-        <div class="panel-head"><h2>Fontes</h2><button class="panel-icon-btn" onclick="showToast('Painel de fontes demonstrativo.')" aria-label="Recolher fontes"><svg class="inline-svg" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
-	<path d="M0 0h24v24H0z" fill="none" />
-	<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20V4m0 16h7.803c1.118 0 1.677 0 2.104-.218a2 2 0 0 0 .875-.875c.218-.427.218-.986.218-2.104V7.197c0-1.118 0-1.678-.218-2.105a2 2 0 0 0-.875-.874C18.48 4 17.92 4 16.8 4H9m0 16H7.197c-1.118 0-1.678 0-2.105-.218a2 2 0 0 1-.874-.875C4 18.48 4 17.92 4 16.8V7.2c0-1.12 0-1.68.218-2.108c.192-.377.497-.682.874-.874C5.52 4 6.08 4 7.2 4H9" />
-</svg></button></div>
+    <main class="workspace" id="workspaceMain">
+      
+<aside class="workspace-panel sidebar-left">
+        <div class="panel-head"><h2>Fontes</h2><button class="panel-icon-btn" onclick="toggleWorkspacePanel('left')" aria-label="Recolher fontes"><svg class="inline-svg" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+		<path d="M0 0h24v24H0z" fill="none" />
+		<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20V4m0 16h7.803c1.118 0 1.677 0 2.104-.218a2 2 0 0 0 .875-.875c.218-.427.218-.986.218-2.104V7.197c0-1.118 0-1.678-.218-2.105a2 2 0 0 0-.875-.874C18.48 4 17.92 4 16.8 4H9m0 16H7.197c-1.118 0-1.678 0-2.105-.218a2 2 0 0 1-.874-.875C4 18.48 4 17.92 4 16.8V7.2c0-1.12 0-1.68.218-2.108c.192-.377.497-.682.874-.874C5.52 4 6.08 4 7.2 4H9" />
+	</svg></button></div>
+        <div class="panel-collapsed-dock sources-collapsed-dock">
+          <button class="collapsed-main-btn" onclick="simulateFileUpload()" title="Adicionar fontes">+</button>
+        </div>
         <div class="panel-body sources-figma">
           <button class="btn-add-source" onclick="simulateFileUpload()"><span style="font-size:1.25rem;line-height:1;">+</span> Adicionar fontes</button>
-          <div class="source-search-card">
-            <div class="source-search-row"><span><svg class="inline-svg" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 14 14">
-	<path d="M0 0h14v14H0z" fill="none" />
-	<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M6 11.5a5.5 5.5 0 1 0 0-11a5.5 5.5 0 0 0 0 11m7.5 2L10 10" />
-</svg></span><input class="source-search" placeholder="Pesquise novas fontes na web" onkeydown="handleSourceSearch(event)"></div>
+          <div class="source-search-card" id="source-search-card">
+            <div class="source-search-row">
+              <input id="sourceWebInput" class="source-search" placeholder="Pesquise novas fontes na web" oninput="updateSourceSearchState()" onkeydown="handleSourceSearch(event)">
+              <button id="sourceSearchSubmit" class="source-search-action" onclick="submitSourceSearch()" aria-label="Pesquisar fontes"><span class="search-icon"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIgLz4KCTxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0NCRDVFMSIgc3Ryb2tlLXdpZHRoPSIyIj4KCQk8cGF0aCBkPSJtMTYuNzUgMi41bC41MiAxLjIzbDEuMjMuNTJsLTEuMjMuNTJMMTYuNzUgNmwtLjUyLTEuMjNMMTUgNC4yNWwxLjIzLS41MnoiIC8+CgkJPHBhdGggc3Ryb2tlLWxpbmVjYXA9InNxdWFyZSIgZD0ibTE1LjgwMyAxNS44MDRsNS4zMDMgNS4zMDNtLTUuMzAzLTUuMzAzQTcuNSA3LjUgMCAxIDEgMTAgMy4wMTdtNS44MDMgMTIuNzg3QTcuNDcgNy40NyAwIDAgMCAxNy45ODMgMTEiIC8+Cgk8L2c+Cjwvc3ZnPgo=" alt=""></span><span class="send-icon"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgogIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNNSAxMmgxNG0tNi03IDcgNy03IDciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4=" alt=""></span></button>
+            </div>
             <div class="source-chip-row">
-              <button class="source-chip" onclick="showToast('Filtro Web ativado.')"><span class="chip-leading"><svg class="inline-svg" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2" /></svg></span><span>Web</span><span class="chip-caret"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 10l5 5l5-5" /></svg></span></button>
-              <button class="source-chip" onclick="showToast('Pesquisa rápida simulada.')"><span class="chip-leading"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><g fill="none" stroke="currentColor" stroke-width="2"><path d="m16.75 2.5l.52 1.23l1.23.52l-1.23.52L16.75 6l-.52-1.23L15 4.25l1.23-.52z" /><path stroke-linecap="square" d="m15.803 15.804l5.303 5.303m-5.303-5.303A7.5 7.5 0 1 1 10 3.017m5.803 12.787A7.47 7.47 0 0 0 17.983 11" /></g></svg></span><span>Pesquisa rápida</span><span class="chip-caret"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 10l5 5l5-5" /></svg></span></button>
+              <div class="source-menu-wrap">
+                <button id="providerChip" class="source-chip" onclick="toggleSourceMenu(event, 'web-source-menu')"><span class="chip-leading"><img class="chip-img-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIgLz4KCTxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTE2LjM2IDE0Yy4wOC0uNjYuMTQtMS4zMi4xNC0ycy0uMDYtMS4zNC0uMTQtMmgzLjM4Yy4xNi42NC4yNiAxLjMxLjI2IDJzLS4xIDEuMzYtLjI2IDJtLTUuMTUgNS41NmMuNi0xLjExIDEuMDYtMi4zMSAxLjM4LTMuNTZoMi45NWE4LjAzIDguMDMgMCAwIDEtNC4zMyAzLjU2TTE0LjM0IDE0SDkuNjZjLS4xLS42Ni0uMTYtMS4zMi0uMTYtMnMuMDYtMS4zNS4xNi0yaDQuNjhjLjA5LjY1LjE2IDEuMzIuMTYgMnMtLjA3IDEuMzQtLjE2IDJNMTIgMTkuOTZjLS44My0xLjItMS41LTIuNTMtMS45MS0zLjk2aDMuODJjLS40MSAxLjQzLTEuMDggMi43Ni0xLjkxIDMuOTZNOCA4SDUuMDhBNy45MiA3LjkyIDAgMCAxIDkuNCA0LjQ0QzguOCA1LjU1IDguMzUgNi43NSA4IDhtLTIuOTIgOEg4Yy4zNSAxLjI1LjggMi40NSAxLjQgMy41NkE4IDggMCAwIDEgNS4wOCAxNm0tLjgyLTJDNC4xIDEzLjM2IDQgMTIuNjkgNCAxMnMuMS0xLjM2LjI2LTJoMy4zOGMtLjA4LjY2LS4xNCAxLjMyLS4xNCAycy4wNiAxLjM0LjE0IDJNMTIgNC4wM2MuODMgMS4yIDEuNSAyLjU0IDEuOTEgMy45N2gtMy44MmMuNDEtMS40MyAxLjA4LTIuNzcgMS45MS0zLjk3TTE4LjkyIDhoLTIuOTVhMTUuNyAxNS43IDAgMCAwLTEuMzgtMy41NmMxLjg0LjYzIDMuMzcgMS45IDQuMzMgMy41Nk0xMiAyQzYuNDcgMiAyIDYuNSAyIDEyYTEwIDEwIDAgMCAwIDEwIDEwYTEwIDEwIDAgMCAwIDEwLTEwQTEwIDEwIDAgMCAwIDEyIDIiIC8+Cjwvc3ZnPgo=" alt=""></span><span id="providerChipText">Web</span><span class="chip-caret"><img class="chip-img-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIgLz4KCTxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0ibTcgMTBsNSA1bDUtNSIgLz4KPC9zdmc+Cg==" alt=""></span></button>
+                <div class="source-dropdown" id="web-source-menu">
+                  <button data-mode="Web" onclick="selectSourceMode(event, 'Web')"><span class="dropdown-icon"><img class="dropdown-img-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIgLz4KCTxwYXRoIGZpbGw9ImN1cnJlbnRDb2xvciIgZD0iTTE2LjM2IDE0Yy4wOC0uNjYuMTQtMS4zMi4xNC0ycy0uMDYtMS4zNC0uMTQtMmgzLjM4Yy4xNi42NC4yNiAxLjMxLjI2IDJzLS4xIDEuMzYtLjI2IDJtLTUuMTUgNS41NmMuNi0xLjExIDEuMDYtMi4zMSAxLjM4LTMuNTZoMi45NWE4LjAzIDguMDMgMCAwIDEtNC4zMyAzLjU2TTE0LjM0IDE0SDkuNjZjLS4xLS42Ni0uMTYtMS4zMi0uMTYtMnMuMDYtMS4zNS4xNi0yaDQuNjhjLjA5LjY1LjE2IDEuMzIuMTYgMnMtLjA3IDEuMzQtLjE2IDJNMTIgMTkuOTZjLS44My0xLjItMS41LTIuNTMtMS45MS0zLjk2aDMuODJjLS40MSAxLjQzLTEuMDggMi43Ni0xLjkxIDMuOTZNOCA4SDUuMDhBNy45MiA3LjkyIDAgMCAxIDkuNCA0LjQ0QzguOCA1LjU1IDguMzUgNi43NSA4IDhtLTIuOTIgOEg4Yy4zNSAxLjI1LjggMi40NSAxLjQgMy41NkE4IDggMCAwIDEgNS4wOCAxNm0tLjgyLTJDNC4xIDEzLjM2IDQgMTIuNjkgNCAxMnMuMS0xLjM2LjI2LTJoMy4zOGMtLjA4LjY2LS4xNCAxLjMyLS4xNCAycy4wNiAxLjM0LjE0IDJNMTIgNC4wM2MuODMgMS4yIDEuNSAyLjU0IDEuOTEgMy45N2gtMy44MmMuNDEtMS40MyAxLjA4LTIuNzcgMS45MS0zLjk3TTE4LjkyIDhoLTIuOTVhMTUuNyAxNS43IDAgMCAwLTEuMzgtMy41NmMxLjg0LjYzIDMuMzcgMS45IDQuMzMgMy41Nk0xMiAyQzYuNDcgMiAyIDYuNSAyIDEyYTEwIDEwIDAgMCAwIDEwIDEwYTEwIDEwIDAgMCAwIDEwLTEwQTEwIDEwIDAgMCAwIDEyIDIiIC8+Cjwvc3ZnPgo=" alt=""></span><span><strong>Web</strong><small>Melhores fontes da Web</small></span></button>
+                  <button data-mode="Drive" onclick="selectSourceMode(event, 'Drive')"><span class="dropdown-icon"><img class="dropdown-img-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxLjEyZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjU2IDIyOSI+Cgk8cGF0aCBkPSJNMCAwaDI1NnYyMjlIMHoiIGZpbGw9Im5vbmUiIC8+Cgk8cGF0aCBmaWxsPSIjMDA2NmRhIiBkPSJtMTkuMzU0IDE5Ni4wMzRsMTEuMjkgMTkuNWMyLjM0NiA0LjEwNiA1LjcxOCA3LjMzMiA5LjY3NyA5LjY3OHExNy4wMDktMjEuNTkxIDIzLjY4LTMzLjEzN3E2Ljc3LTExLjcxNyAxNi42NDEtMzYuNjU1cS0yNi42MDQtMy41MDItNDAuMzItMy41MDJxLTEzLjE2NSAwLTQwLjMyMiAzLjUwMmMwIDQuNTQ1IDEuMTczIDkuMDkgMy41MTkgMTMuMTk2eiIgLz4KCTxwYXRoIGZpbGw9IiNlYTQzMzUiIGQ9Ik0yMTUuNjgxIDIyNS4yMTJjMy45Ni0yLjM0NiA3LjMzMi01LjU3MiA5LjY3Ny05LjY3N2w0LjY5Mi04LjA2NGwyMi40MzQtMzguODU1YTI2LjU3IDI2LjU3IDAgMCAwIDMuNTE4LTEzLjE5NnEtMjcuMzE1LTMuNTAyLTQwLjI0Ny0zLjUwMnEtMTMuODk5IDAtNDAuMjQ4IDMuNTAycTkuNzU0IDI1LjA3NSAxNi40MjIgMzYuNjU1cTYuNzI0IDExLjY4MyAyMy43NTIgMzMuMTM3IiAvPgoJPHBhdGggZmlsbD0iIzAwODMyZCIgZD0iTTEyOC4wMDEgNzMuMzExcTE5LjY4LTIzLjc2OCAyNy4xMjUtMzYuNjU1cTUuOTk2LTEwLjM3NyAxMy4xOTYtMzMuMTM3QzE2NC4zNjMgMS4xNzMgMTU5LjgxOCAwIDE1NS4xMjYgMGgtNTQuMjVDOTYuMTg0IDAgOTEuNjQgMS4zMiA4Ny42OCAzLjUxOXE5LjE2IDI2LjEwMyAxNS41NDQgMzcuMTU0cTcuMDU2IDEyLjIxMyAyNC43NzcgMzIuNjM4IiAvPgoJPHBhdGggZmlsbD0iIzI2ODRmYyIgZD0iTTE3NS4zNiAxNTUuNDJIODAuNjQybC00MC4zMiA2OS43OTJjMy45NTggMi4zNDYgOC41MDMgMy41MTkgMTMuMTk1IDMuNTE5aDE0OC45NjhjNC42OTIgMCA5LjIzOC0xLjMyIDEzLjE5Ni0zLjUyeiIgLz4KCTxwYXRoIGZpbGw9IiMwMGFjNDciIGQ9Ik0xMjguMDAxIDczLjMxMUw4Ny42ODEgMy41MmMtMy45NiAyLjM0Ni03LjMzMiA1LjU3MS05LjY3OCA5LjY3N0wzLjUxOSAxNDIuMjI0QTI2LjU3IDI2LjU3IDAgMCAwIDAgMTU1LjQyaDgwLjY0MnoiIC8+Cgk8cGF0aCBmaWxsPSIjZmZiYTAwIiBkPSJtMjE1LjI0MiA3Ny43MWwtMzcuMjQzLTY0LjUxNGMtMi4zNDUtNC4xMDYtNS43MTgtNy4zMzEtOS42NzctOS42NzdsLTQwLjMyIDY5Ljc5Mmw0Ny4zNTggODIuMTA5aDgwLjQ5NmMwLTQuNTQ2LTEuMTczLTkuMDktMy41MTktMTMuMTk2eiIgLz4KPC9zdmc+Cg==" alt=""></span><span><strong>Drive</strong><small>Seu conteúdo do Google Drive</small></span></button>
+                </div>
+              </div>
+              <div class="source-menu-wrap">
+                <button id="modeChip" class="source-chip" onclick="toggleSourceMenu(event, 'quick-source-menu')"><span class="chip-leading"><img class="chip-img-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIgLz4KCTxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utd2lkdGg9IjIiPgoJCTxwYXRoIGQ9Im0xNi43NSAyLjVsLjUyIDEuMjNsMS4yMy41MmwtMS4yMy41MkwxNi43NSA2bC0uNTItMS4yM0wxNSA0LjI1bDEuMjMtLjUyeiIgLz4KCQk8cGF0aCBzdHJva2UtbGluZWNhcD0ic3F1YXJlIiBkPSJtMTUuODAzIDE1LjgwNGw1LjMwMyA1LjMwM20tNS4zMDMtNS4zMDNBNy41IDcuNSAwIDEgMSAxMCAzLjAxN201LjgwMyAxMi43ODdBNy40NyA3LjQ3IDAgMCAwIDE3Ljk4MyAxMSIgLz4KCTwvZz4KPC9zdmc+Cg==" alt=""></span><span id="modeChipText">Pesquisa rápida</span><span class="chip-caret"><img class="chip-img-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIgLz4KCTxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiIgZD0ibTcgMTBsNSA1bDUtNSIgLz4KPC9zdmc+Cg==" alt=""></span></button>
+                <div class="source-dropdown" id="quick-source-menu">
+                  <button data-mode="Pesquisa rápida" onclick="selectSourceMode(event, 'Pesquisa rápida')"><span class="dropdown-icon"><img class="dropdown-img-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIgLz4KCTxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2Utd2lkdGg9IjIiPgoJCTxwYXRoIGQ9Im0xNi43NSAyLjVsLjUyIDEuMjNsMS4yMy41MmwtMS4yMy41MkwxNi43NSA2bC0uNTItMS4yM0wxNSA0LjI1bDEuMjMtLjUyeiIgLz4KCQk8cGF0aCBzdHJva2UtbGluZWNhcD0ic3F1YXJlIiBkPSJtMTUuODAzIDE1LjgwNGw1LjMwMyA1LjMwM20tNS4zMDMtNS4zMDNBNy41IDcuNSAwIDEgMSAxMCAzLjAxN201LjgwMyAxMi43ODdBNy40NyA3LjQ3IDAgMCAwIDE3Ljk4MyAxMSIgLz4KCTwvZz4KPC9zdmc+Cg==" alt=""></span><span><strong>Pesquisa rápida</strong><small>Ótima para resultados rápidos</small></span></button>
+                  <button data-mode="Deep Research" onclick="selectSourceMode(event, 'Deep Research')"><span class="dropdown-icon"><img class="dropdown-img-icon" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIgLz4KCTxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iY3VycmVudENvbG9yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iMiI+CgkJPHBhdGggZD0iTTIxIDEyYTkgOSAwIDEgMC05IDlNMy42IDloMTYuOE0zLjYgMTVoNy45IiAvPgoJCTxwYXRoIGQ9Ik0xMS41IDNhMTcgMTcgMCAwIDAgMCAxOG0xLTE4YTE3IDE3IDAgMCAxIDIuNTc0IDguNjJNMTUgMThhMyAzIDAgMSAwIDYgMGEzIDMgMCAxIDAtNiAwbTUuMiAyLjJMMjIgMjIiIC8+Cgk8L2c+Cjwvc3ZnPgo=" alt=""></span><span><strong>Deep Research</strong><small>Relatório e resultados detalhados</small></span></button>
+                </div>
+              </div>
             </div>
           </div>
           <div id="sources-list-container"></div>
         </div>
+        <div class="panel-resizer handle-right" data-side="left" aria-hidden="true"></div>
       </aside>
 
       <section class="chat-main">
         <div class="chat-toolbar">
-          <div class="chat-title"><strong id="chat-title-display">Sem título</strong><small id="chat-subtitle-display">Adicione uma fonte ou envie uma pergunta.</small></div>
+          <div class="chat-title"><strong id="chat-title-display" class="chat-title-editable" contenteditable="true" spellcheck="false" oninput="syncCurrentChatTitle()" title="Clique para editar o título">Sem título</strong><small id="chat-subtitle-display">Adicione uma fonte ou envie uma pergunta.</small></div>
           <div class="chat-toolbar-right">
             <div class="chat-status"><span class="status-dot"></span> Sigilo demonstrativo ativo</div>
             <button class="chat-icon-btn" onclick="toggleAISettings(event)" title="Alterar inteligência da IA" aria-label="Alterar inteligência da IA"><svg class="inline-svg" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="14" y2="6"/><circle cx="18" cy="6" r="2"/><line x1="4" y1="12" x2="8" y2="12"/><circle cx="12" cy="12" r="2"/><line x1="16" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="13" y2="18"/><circle cx="17" cy="18" r="2"/></svg></button>
@@ -1060,34 +1911,99 @@
           </div>
           <div class="messages" id="chat-box"></div>
         </div>
-        <div class="chat-input-area">
-          <input id="userInput" placeholder="Comece a digitar..." onkeydown="handleChatKey(event)">
-          <button class="btn btn-primary btn-sm" onclick="sendUserMessage()">Enviar</button>
+        <div class="chat-input-area" id="chat-input-area">
+          <input id="userInput" placeholder="Comece a digitar..." oninput="updateChatSendState()" onkeydown="handleChatKey(event)">
+          <button class="chat-send-btn" onclick="sendUserMessage()" aria-label="Enviar mensagem"><span class="search-icon"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIgLz4KCTxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0NCRDVFMSIgc3Ryb2tlLXdpZHRoPSIyIj4KCQk8cGF0aCBkPSJtMTYuNzUgMi41bC41MiAxLjIzbDEuMjMuNTJsLTEuMjMuNTJMMTYuNzUgNmwtLjUyLTEuMjNMMTUgNC4yNWwxLjIzLS41MnoiIC8+CgkJPHBhdGggc3Ryb2tlLWxpbmVjYXA9InNxdWFyZSIgZD0ibTE1LjgwMyAxNS44MDRsNS4zMDMgNS4zMDNtLTUuMzAzLTUuMzAzQTcuNSA3LjUgMCAxIDEgMTAgMy4wMTdtNS44MDMgMTIuNzg3QTcuNDcgNy40NyAwIDAgMCAxNy45ODMgMTEiIC8+Cgk8L2c+Cjwvc3ZnPgo=" alt=""></span><span class="send-icon"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgogIDxwYXRoIGQ9Ik0wIDBoMjR2MjRIMHoiIGZpbGw9Im5vbmUiLz4KICA8cGF0aCBkPSJNNSAxMmgxNG0tNi03IDcgNy03IDciIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPgo8L3N2Zz4=" alt=""></span></button>
         </div>
       </section>
 
       <aside class="workspace-panel sidebar-right">
-        <div class="panel-head"><h2>Estúdio</h2><button class="pill-btn" onclick="showToast('O estúdio gera entregáveis com base nas fontes.')">?</button></div>
+        <div class="panel-head"><h2>Estúdio</h2><button aria-label="Recolher estúdio" class="panel-icon-btn" onclick="toggleWorkspacePanel('right')"><svg class="inline-svg" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4v16m-7-16h9.8c1.12 0 1.68 0 2.108.218c.377.192.682.497.874.874C21 5.52 21 6.08 21 7.2v9.6c0 1.12 0 1.68-.218 2.108a2 2 0 0 1-.874.874C19.48 20 18.92 20 17.8 20H8m0-16H6.2c-1.12 0-1.68 0-2.108.218a2 2 0 0 0-.874.874C3 5.52 3 6.08 3 7.2v9.6c0 1.12 0 1.68.218 2.108c.192.377.497.682.874.874C4.52 20 5.08 20 6.2 20H8"/></svg></button></div>
+        <div class="panel-collapsed-dock studio-collapsed-dock">
+          <button class="collapsed-tool studio-yellow" onclick="triggerStudioAction('Relatórios')" title="Relatórios"><span>📑</span><b>+</b></button>
+          <button class="collapsed-tool studio-blue" onclick="triggerStudioAction('Resumo em Áudio')" title="Resumo em Áudio"><span>🎧</span><b>+</b></button>
+          <button class="collapsed-tool studio-green" onclick="triggerStudioAction('Processos Resumidos')" title="Processos Resumidos"><span>📁</span><b>+</b></button>
+          <button class="collapsed-tool studio-purple" onclick="triggerStudioAction('Parecer Jurídico')" title="Parecer Jurídico"><span>⚖️</span><b>+</b></button>
+          <button class="collapsed-tool studio-orange" onclick="triggerStudioAction('Revisar Contrato')" title="Revisar Contrato"><span>📄</span><b>+</b></button>
+          <button class="collapsed-tool studio-rose" onclick="triggerStudioAction('Peças Jurídicas')" title="Peças Jurídicas"><span>📝</span><b>+</b></button>
+          <button class="collapsed-tool studio-indigo" onclick="triggerStudioAction('Tabela de Dados')" title="Tabela de Dados"><span>📊</span><b>+</b></button>
+          <button class="collapsed-tool studio-cyan" onclick="triggerStudioAction('Busca de Jurisprudência')" title="Busca de Jurisprudência"><span>🔎</span><b>+</b></button>
+          <button class="btn btn-soft collapsed-add-note" onclick="addNote()">🗒️</button>
+        </div>
         <div class="panel-body">
           <div class="studio-group">
             <div class="studio-group-title">✦ Gerar documentos</div>
-            <div class="studio-grid">
-              <button class="studio-btn" onclick="triggerStudioAction('Relatórios')">Relatórios</button>
-              <button class="studio-btn" onclick="triggerStudioAction('Resumo em Áudio')">Resumo em Áudio</button>
-              <button class="studio-btn" onclick="triggerStudioAction('Parecer Jurídico')">Parecer Jurídico</button>
-              <button class="studio-btn" onclick="triggerStudioAction('Tabela de Dados')">Tabela de Dados</button>
-              <button class="studio-btn" onclick="triggerStudioAction('Processos Resumidos')">Processos Resumidos</button>
-              <button class="studio-btn" onclick="triggerStudioAction('Autos')">Autos</button>
-              <button class="studio-btn" onclick="triggerStudioAction('Peças Jurídicas')">Peças Jurídicas</button>
-              <button class="studio-btn" onclick="triggerStudioAction('Busca de Jurisprudência')">Busca de Jurisprudência</button>
-              <button class="studio-btn" onclick="triggerStudioAction('Revisar Contrato')">Revisar Contrato</button>
+            <div class="studio-grid studio-grid-v10">
+              <button class="studio-btn studio-yellow" onclick="triggerStudioAction('Relatórios')"><span class="studio-main"><span class="studio-emoji">📑</span><span>Relatórios</span></span><span class="studio-arrow">›</span></button>
+              <button class="studio-btn studio-blue" onclick="triggerStudioAction('Resumo em Áudio')"><span class="studio-main"><span class="studio-emoji">🎧</span><span>Resumo em Áudio</span></span><span class="studio-arrow">›</span></button>
+              <button class="studio-btn studio-purple" onclick="triggerStudioAction('Parecer Jurídico')"><span class="studio-main"><span class="studio-emoji">⚖️</span><span>Parecer Jurídico</span></span><span class="studio-arrow">›</span></button>
+              <button class="studio-btn studio-indigo" onclick="triggerStudioAction('Tabela de Dados')"><span class="studio-main"><span class="studio-emoji">📊</span><span>Tabela de Dados</span></span><span class="studio-arrow">›</span></button>
+              <button class="studio-btn studio-green" onclick="triggerStudioAction('Processos Resumidos')"><span class="studio-main"><span class="studio-emoji">📁</span><span>Processos Resumidos</span></span><span class="studio-arrow">›</span></button>
+              <button class="studio-btn studio-slate" onclick="triggerStudioAction('Autos')"><span class="studio-main"><span class="studio-emoji">📚</span><span>Autos</span></span><span class="studio-arrow">›</span></button>
+              <button class="studio-btn studio-rose" onclick="triggerStudioAction('Peças Jurídicas')"><span class="studio-main"><span class="studio-emoji">📝</span><span>Peças Jurídicas</span></span><span class="studio-arrow">›</span></button>
+              <button class="studio-btn studio-cyan" onclick="triggerStudioAction('Busca de Jurisprudência')"><span class="studio-main"><span class="studio-emoji">🔎</span><span>Busca de Jurisprudência</span></span><span class="studio-arrow">›</span></button>
+              <button class="studio-btn studio-orange" onclick="triggerStudioAction('Revisar Contrato')"><span class="studio-main"><span class="studio-emoji">📄</span><span>Revisar Contrato</span></span><span class="studio-arrow">›</span></button>
             </div>
+          </div>
+          <div id="studioNotesList" class="studio-notes-list"></div><div class="studio-result-empty" id="studioEmptyState">
+            <div class="studio-result-icon"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIgLz4KCTxwYXRoIGZpbGw9IiNFQUYxRkYiIGQ9Ik0xMy4xOTggOS43MzNMMy4xNjkgMTkuNzYxYy4wNTkuMTY3LjE3Ni40LjQxOC42NDNjLjI0My4yNDIuNDc2LjM2LjY0My40MThsMTAuMDI4LTEwLjAyOGExLjcgMS43IDAgMCAwLS40MTgtLjY0M2ExLjcgMS43IDAgMCAwLS42NDItLjQxOG0xLjg2OCAxLjMxM2wuNzUuMDEyYS43NS43NSAwIDAgMS0uMjIuNTE5TDUuMDE0IDIyLjE2YS43NS43NSAwIDAgMS0uNTE4LjIybC0uMDEyLS43NWwuMDEyLjc1aC0uMDMzYTEuNCAxLjQgMCAwIDEtLjE5Ny0uMDE1YTIuNiAyLjYgMCAwIDEtLjQ1OC0uMTAzYTMuMiAzLjIgMCAwIDEtMS4yOC0uNzk3YTMuMiAzLjIgMCAwIDEtLjc5Ny0xLjI4YTIuNiAyLjYgMCAwIDEtLjExNy0uNjA2bC0uMDAyLS4wNXYtLjAzMWwuNzUuMDFsLS43NS0uMDExYS43NS43NSAwIDAgMSAuMjItLjUxOUwxMi40MTUgOC4zOTVhLjc1Ljc1IDAgMCAxIC41MTgtLjIybC4wMTIuNzVsLS4wMTItLjc1aC4wMzNhMiAyIDAgMCAxIC4xOTcuMDE1Yy4xMTguMDE1LjI3NS4wNDUuNDU4LjEwM2EzLjIgMy4yIDAgMCAxIDEuMjguNzk3Yy40NDguNDQ5LjY4LjkxMy43OTcgMS4yOGEyLjYgMi42IDAgMCAxIC4xMTcuNjA2bC4wMDEuMDV2LjAzMXoiIC8+Cgk8cGF0aCBmaWxsPSIjRUFGMUZGIiBkPSJNMTIuNzYyIDIuMTY3YS4yOS4yOSAwIDAgMC0uNTI0IDBsLS42MTUgMS4zMTZhLjMuMyAwIDAgMS0uMTQuMTRsLTEuMzE2LjYxNWEuMjkuMjkgMCAwIDAgMCAuNTI0bDEuMzE2LjYxNWEuMy4zIDAgMCAxIC4xNC4xNGwuNjE1IDEuMzE2YS4yOS4yOSAwIDAgMCAuNTI0IDBsLjYxNS0xLjMxNmEuMy4zIDAgMCAxIC4xNC0uMTRsMS4zMTYtLjYxNWEuMjkuMjkgMCAwIDAgMC0uNTI0bC0xLjMxNi0uNjE1YS4zLjMgMCAwIDEtLjE0LS4xNHpNNS42ODUgNS4yYS4zNDcuMzQ3IDAgMCAxIC42MyAwbC43MzcgMS41OGEuMzUuMzUgMCAwIDAgLjE2OC4xNjhsMS41OC43MzdhLjM0Ny4zNDcgMCAwIDEgMCAuNjNsLTEuNTguNzM3YS4zNS4zNSAwIDAgMC0uMTY4LjE2OGwtLjczNyAxLjU4YS4zNDcuMzQ3IDAgMCAxLS42MyAwbC0uNzM3LTEuNThhLjM1LjM1IDAgMCAwLS4xNjgtLjE2OEwzLjIgOC4zMTVhLjM0Ny4zNDcgMCAwIDEgMC0uNjNsMS41OC0uNzM3YS4zNS4zNSAwIDAgMCAuMTY4LS4xNjh6bTEzIDZhLjM0Ny4zNDcgMCAwIDEgLjYzIDBsLjczNyAxLjU4YS4zNS4zNSAwIDAgMCAuMTY4LjE2OGwxLjU4LjczN2EuMzQ3LjM0NyAwIDAgMSAwIC42M2wtMS41OC43MzdhLjM1LjM1IDAgMCAwLS4xNjguMTY4bC0uNzM3IDEuNThhLjM0Ny4zNDcgMCAwIDEtLjYzIDBsLS43MzctMS41OGEuMzUuMzUgMCAwIDAtLjE2OC0uMTY4bC0xLjU4LS43MzdhLjM0Ny4zNDcgMCAwIDEgMC0uNjNsMS41OC0uNzM3YS4zNS4zNSAwIDAgMCAuMTY4LS4xNjh6bS03Ljg1IDEuOTU2Yy0uNzA3LS43MDctMS40My0uNjktMS40My0uNjlsLTcuMDM4IDcuMDM3cy0uMDE3LjcyNC42OSAxLjQzMXMxLjQzMS42OSAxLjQzMS42OWw3LjAzNy03LjAzN3MuMDE3LS43MjQtLjY5LTEuNDMiIG9wYWNpdHk9Ii41IiAvPgo8L3N2Zz4K" alt="Estúdio"></div>
+            <p><strong>O resultado do Estúdio será salvo aqui.</strong><br>Depois de incluir as fontes, clique para adicionar um Relatório, um Resumo em Áudio, um Parecer Jurídico e muito mais!</p>
           </div>
         </div>
         <div class="add-note"><button class="btn btn-soft" onclick="addNote()">📝 Adicionar nota</button></div>
+        <div class="panel-resizer handle-left" data-side="right" aria-hidden="true"></div>
       </aside>
     </main>
   </div>
+
+  <div id="shareModal" class="share-modal" aria-hidden="true" onclick="if(event.target===this) closeShareModal()">
+    <div class="share-card" role="dialog" aria-modal="true" aria-label="Compartilhar conversa">
+      <div class="share-card-header">
+        <div class="share-title">
+          <img class="share-title-img" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIgLz4KCTxwYXRoIGZpbGw9IiNFQUYxRkYiIGQ9Ik0xNyAyMnEtMS4yNSAwLTIuMTI1LS44NzVUMTQgMTlxMC0uMTUuMDc1LS43TDcuMDUgMTQuMnEtLjQuMzc1LS45MjUuNTg4VDUgMTVxLTEuMjUgMC0yLjEyNS0uODc1VDIgMTJ0Ljg3NS0yLjEyNVQ1IDlxLjYgMCAxLjEyNS4yMTN0LjkyNS41ODdsNy4wMjUtNC4xcS0uMDUtLjE3NS0uMDYyLS4zMzdUMTQgNXEwLTEuMjUuODc1LTIuMTI1VDE3IDJ0Mi4xMjUuODc1VDIwIDV0LS44NzUgMi4xMjVUMTcgOHEtLjYgMC0xLjEyNS0uMjEzVDE0Ljk1IDcuMmwtNy4wMjUgNC4xcS4wNS4xNzUuMDYzLjMzOFQ4IDEydC0uMDEyLjM2M3QtLjA2My4zMzdsNy4wMjUgNC4xcS40LS4zNzUuOTI1LS41ODdUMTcgMTZxMS4yNSAwIDIuMTI1Ljg3NVQyMCAxOXQtLjg3NSAyLjEyNVQxNyAyMm0wLTJxLjQyNSAwIC43MTMtLjI4N1QxOCAxOXQtLjI4OC0uNzEyVDE3IDE4dC0uNzEyLjI4OFQxNiAxOXQuMjg4LjcxM1QxNyAyME01IDEzcS40MjUgMCAuNzEzLS4yODhUNiAxMnQtLjI4OC0uNzEyVDUgMTF0LS43MTIuMjg4VDQgMTJ0LjI4OC43MTNUNSAxM20xMi43MTMtNy4yODhRMTggNS40MjYgMTggNXQtLjI4OC0uNzEyVDE3IDR0LS43MTIuMjg4VDE2IDV0LjI4OC43MTNUMTcgNnQuNzEzLS4yODhNMTcgNSIgLz4KPC9zdmc+Cg==" alt="">
+          <span>Compartilhar &quot;Conversa sem título&quot;</span>
+        </div>
+        <button class="share-close" onclick="closeShareModal()" aria-label="Fechar">×</button>
+      </div>
+      <div class="share-card-body">
+        <label class="share-label">Adicione pessoas ou grupos *</label>
+        <input class="share-field" placeholder="">
+        <div class="share-row-title">
+          <strong>Pessoas com acesso</strong>
+          <label class="share-toggle">Notificar pessoas <input type="checkbox" checked></label>
+        </div>
+        <div class="share-user-row">
+          <div class="share-user">
+            <div class="share-avatar">JD</div>
+            <div class="share-user-meta"><strong>João Dias</strong><span>advogado@exemplo.com</span></div>
+          </div>
+          <button class="share-owner">Proprietário ▾</button>
+        </div>
+        <div class="share-divider"></div>
+        <div class="share-section-title">Acesso ao link</div>
+        <div class="share-access-wrap">
+          <button class="share-access-row" onclick="toggleShareAccess(event)">
+            <div class="share-lock">🔒</div>
+            <div class="share-access-text">
+              <strong id="shareAccessCurrent">Restrito</strong>
+              <span id="shareAccessDescription">Só as pessoas com acesso podem abrir com o link</span>
+            </div>
+            <span class="share-dropdown-caret">▾</span>
+          </button>
+          <div class="share-access-menu" id="shareAccessMenu">
+            <button class="active" onclick="setShareAccess(event, 'Restrito', 'Só as pessoas com acesso podem abrir com o link')"><span>Restrito</span><b>✓</b></button>
+            <button onclick="setShareAccess(event, 'Qualquer pessoa com o link', 'Qualquer pessoa com o link pode visualizar')"><span>Qualquer pessoa com o link</span><b>✓</b></button>
+            <button onclick="setShareAccess(event, 'Público', 'Qualquer pessoa na internet pode visualizar')"><span>Público</span><b>✓</b></button>
+          </div>
+        </div>
+        <div class="share-footer">
+          <button class="share-copy" onclick="copyShareLink()">🔗 Copiar link</button>
+          <button class="share-save" onclick="closeShareModal()">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <!-- ========================= AUTH MODAL ========================= -->
   <div class="modal" id="authModal" aria-hidden="true">
@@ -1123,7 +2039,7 @@
             <div class="field"><label>Atuação profissional *</label><select required><option value="">Selecione</option><option>Advogado(a)</option><option>Estudante</option><option>Servidor público</option><option>Departamento jurídico</option></select></div>
           </div>
           <div class="field"><label>Senha *</label><input type="password" required placeholder="Crie sua senha"></div>
-          <label class="terms"><input type="checkbox" required checked> <span>Li e estou de acordo com os <strong>Termos de uso</strong> e a <strong>Política de Privacidade</strong>.</span></label>
+          <label class="terms"><input type="checkbox" required checked> <span>Li e estou de acordo com os <button type="button" class="terms-link" onclick="openUtilityModal('legal')">Termos de uso</button> e a <button type="button" class="terms-link" onclick="openUtilityModal('privacy')">Política de Privacidade</button>.</span></label>
           <button class="btn btn-primary" type="submit">Continuar</button>
         </form>
       </section>
@@ -1175,6 +2091,44 @@
     </div>
   </div>
 
+
+  <div class="utility-modal" id="feedbackModal" aria-hidden="true">
+    <div class="utility-card" role="dialog" aria-modal="true" aria-label="Enviar feedback">
+      <button class="modal-close" onclick="closeUtilityModals()" aria-label="Fechar">×</button>
+      <h2>Enviar feedback</h2>
+      <p>Conte o que você achou da experiência demonstrativa da Juris-Private.</p>
+      <textarea id="feedbackText" placeholder="Escreva seu feedback aqui..."></textarea>
+      <button class="btn btn-primary" onclick="submitFeedback()">Enviar feedback</button>
+    </div>
+  </div>
+
+  <div class="utility-modal" id="languageModal" aria-hidden="true">
+    <div class="utility-card" role="dialog" aria-modal="true" aria-label="Idioma da resposta">
+      <button class="modal-close" onclick="closeUtilityModals()" aria-label="Fechar">×</button>
+      <h2>Idioma da resposta</h2>
+      <p>Escolha o idioma preferido para as respostas demonstrativas da IA.</p>
+      <div class="language-options">
+        <button onclick="setResponseLanguage('Português')">🇧🇷 Português</button>
+        <button onclick="setResponseLanguage('English')">🇺🇸 English</button>
+        <button onclick="setResponseLanguage('Español')">🇪🇸 Español</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="utility-modal" id="legalModal" aria-hidden="true">
+    <div class="utility-card legal-card" role="dialog" aria-modal="true" aria-label="Termos de uso e política de privacidade">
+      <button class="modal-close" onclick="closeUtilityModals()" aria-label="Fechar">×</button>
+      <h2>Termos de Uso e Política de Privacidade</h2>
+      <p>Este site é um protótipo acadêmico demonstrativo. As informações exibidas simulam uma plataforma jurídica e não substituem orientação profissional.</p>
+      <h3>Termos de uso</h3>
+      <p>Ao utilizar a Juris-Private, o usuário concorda em usar a ferramenta apenas para fins de estudo, demonstração e organização de informações. O conteúdo gerado pela IA deve ser revisado antes de qualquer uso real.</p>
+      <h3>Política de privacidade</h3>
+      <p>O protótipo não possui backend real e não armazena dados em servidor. Os dados digitados são usados apenas na simulação visual da página aberta no navegador.</p>
+      <h3>Licenças</h3>
+      <p>Logos, ícones e textos foram organizados para fins acadêmicos no projeto Juris-Private.</p>
+    </div>
+  </div>
+
   <script>
     const $ = (selector) => document.querySelector(selector);
     const $$ = (selector) => document.querySelectorAll(selector);
@@ -1196,6 +2150,10 @@
     }
 
     function goToView(viewId) {
+      const manualTheme = localStorage.getItem('jp-theme-manual') === 'true';
+      if (!manualTheme && (viewId === 'dashboard-view' || viewId === 'chat-view')) {
+        applyThemeMode('escuro');
+      }
       $$('.view-section').forEach(section => section.classList.remove('active'));
       $('#' + viewId).classList.add('active');
       window.scrollTo(0, 0);
@@ -1269,7 +2227,7 @@
     function renderSources() {
       const container = $('#sources-list-container');
       if (!filesUploaded.length) {
-        container.innerHTML = '<div class="source-empty"><div class="source-empty-icon"><svg class="inline-svg" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h8"/></svg></div><strong>As fontes salvas vão aparecer aqui</strong><p>Clique em “Adicionar fonte” para incluir arquivos PDF, de sites, de texto, de vídeo ou de áudio. Ou importe um arquivo do Google Drive.</p></div>';
+        container.innerHTML = '<div class=\"source-empty\"><div class=\"source-empty-icon\"><img src=\"data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%2724%27%20height%3D%2724%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27none%27%20stroke%3D%27%23E5E7EB%27%20stroke-width%3D%272%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%3Cpath%20d%3D%27M14%202H6a2%202%200%200%200-2%202v16a2%202%200%200%200%202%202h12a2%202%200%200%200%202-2V8z%27/%3E%3Cpath%20d%3D%27M14%202v6h6%27/%3E%3Cpath%20d%3D%27M8%2013h8%27/%3E%3Cpath%20d%3D%27M8%2017h8%27/%3E%3C/svg%3E\" alt=\"Documento\"></div><strong>As fontes salvas vão aparecer aqui</strong><p>Clique em “Adicionar fonte” para incluir arquivos PDF, de sites, de texto, de vídeo ou de áudio. Ou importe um arquivo do Google Drive.</p></div>';
         return;
       }
       container.innerHTML = filesUploaded.map(file => `
@@ -1284,60 +2242,52 @@
       $('#chat-subtitle-display').textContent = 'Adicione uma fonte ou envie uma pergunta.';
     }
 
+    
+    function setChatTitle(title) {
+      const el = document.getElementById('chat-title-display');
+      if (el) el.textContent = title || 'Sem título';
+    }
+
+    function syncCurrentChatTitle() {
+      const value = (document.getElementById('chat-title-display')?.textContent || '').trim() || 'Sem título';
+      document.getElementById('chat-subtitle-display').textContent = 'Título personalizado • continue sua análise jurídica.';
+      return value;
+    }
+
     function startNewChat() {
       filesUploaded = [];
-      $('#chat-title-display').textContent = 'Sem título';
-  
-    function initCodeInputs() {
-      const inputs = Array.from($$('.code-input'));
-      inputs.forEach((input, index) => {
-        input.addEventListener('input', () => {
-          input.value = input.value.replace(/\D/g, '').slice(0, 1);
-          if (input.value && inputs[index + 1]) inputs[index + 1].focus();
-        });
-        input.addEventListener('keydown', (event) => {
-          if (event.key === 'Backspace' && !input.value && inputs[index - 1]) inputs[index - 1].focus();
-        });
-        input.addEventListener('paste', (event) => {
-          event.preventDefault();
-          const pasted = (event.clipboardData || window.clipboardData).getData('text').replace(/\D/g, '').slice(0, 6);
-          pasted.split('').forEach((digit, pasteIndex) => {
-            if (inputs[pasteIndex]) inputs[pasteIndex].value = digit;
-          });
-          inputs[Math.min(pasted.length, inputs.length) - 1]?.focus();
-        });
-      });
+      setChatTitle('Sem título');
+      renderSources();
+      resetChatShell();
+      goToView('chat-view');
+      closeFloatingMenus();
+      updateChatSendState();
+      showToast('Nova conversa criada.');
     }
 
     function initPasswordVisibility() {
-      document.querySelectorAll('.modal-form input[type="password"]').forEach((input, index) => {
+      document.querySelectorAll('.modal-form input[type="password"]').forEach((input) => {
         if (input.parentElement.classList.contains('password-wrap')) return;
         const wrapper = document.createElement('div');
         wrapper.className = 'password-wrap';
         input.parentNode.insertBefore(wrapper, input);
         wrapper.appendChild(input);
+
         const button = document.createElement('button');
         button.type = 'button';
         button.className = 'password-toggle';
         button.setAttribute('aria-label', 'Mostrar ou ocultar senha');
-        button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" fill-rule="evenodd" d="M20.53 4.53a.75.75 0 0 0-1.06-1.06l-16 16a.75.75 0 1 0 1.06 1.06l3.035-3.035C8.883 18.103 10.392 18.5 12 18.5c2.618 0 4.972-1.051 6.668-2.353c.85-.652 1.547-1.376 2.035-2.08c.48-.692.797-1.418.797-2.067s-.317-1.375-.797-2.066c-.488-.705-1.185-1.429-2.035-2.08q-.406-.313-.86-.601zm-5.4 5.402l-1.1 1.098a2.25 2.25 0 0 1-3 3l-1.1 1.1a3.75 3.75 0 0 0 5.197-5.197" clip-rule="evenodd" /><path fill="currentColor" d="M12.67 8.31a.26.26 0 0 0 .23-.07l1.95-1.95a.243.243 0 0 0-.104-.407A10.2 10.2 0 0 0 12 5.5c-2.618 0-4.972 1.051-6.668 2.353c-.85.652-1.547 1.376-2.036 2.08c-.48.692-.796 1.418-.796 2.067s.317 1.375.796 2.066a9.3 9.3 0 0 0 1.672 1.79a.246.246 0 0 0 .332-.017l2.94-2.94a.26.26 0 0 0 .07-.23q-.06-.325-.06-.669a3.75 3.75 0 0 1 4.42-3.69" /></svg>`;
+        button.innerHTML = '<span aria-hidden="true">◉</span>';
         button.addEventListener('click', () => {
           const showing = input.type === 'text';
           input.type = showing ? 'password' : 'text';
-          button.innerHTML = showing ? `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" fill-rule="evenodd" d="M20.53 4.53a.75.75 0 0 0-1.06-1.06l-16 16a.75.75 0 1 0 1.06 1.06l3.035-3.035C8.883 18.103 10.392 18.5 12 18.5c2.618 0 4.972-1.051 6.668-2.353c.85-.652 1.547-1.376 2.035-2.08c.48-.692.797-1.418.797-2.067s-.317-1.375-.797-2.066c-.488-.705-1.185-1.429-2.035-2.08q-.406-.313-.86-.601zm-5.4 5.402l-1.1 1.098a2.25 2.25 0 0 1-3 3l-1.1 1.1a3.75 3.75 0 0 0 5.197-5.197" clip-rule="evenodd" /><path fill="currentColor" d="M12.67 8.31a.26.26 0 0 0 .23-.07l1.95-1.95a.243.243 0 0 0-.104-.407A10.2 10.2 0 0 0 12 5.5c-2.618 0-4.972 1.051-6.668 2.353c-.85.652-1.547 1.376-2.036 2.08c-.48.692-.796 1.418-.796 2.067s.317 1.375.796 2.066a9.3 9.3 0 0 0 1.672 1.79a.246.246 0 0 0 .332-.017l2.94-2.94a.26.26 0 0 0 .07-.23q-.06-.325-.06-.669a3.75 3.75 0 0 1 4.42-3.69" /></svg>` : `<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none" /><path fill="currentColor" d="M12 9.75a2.25 2.25 0 1 0 0 4.5a2.25 2.25 0 0 0 0-4.5" /><path fill="currentColor" fill-rule="evenodd" d="M12 5.5c-2.618 0-4.972 1.051-6.668 2.353c-.85.652-1.547 1.376-2.036 2.08c-.48.692-.796 1.418-.796 2.067s.317 1.375.796 2.066c.49.705 1.186 1.429 2.036 2.08C7.028 17.45 9.382 18.5 12 18.5s4.972-1.051 6.668-2.353c.85-.652 1.547-1.376 2.035-2.08c.48-.692.797-1.418.797-2.067s-.317-1.375-.797-2.066c-.488-.705-1.185-1.429-2.035-2.08C16.972 6.55 14.618 5.5 12 5.5M8.25 12a3.75 3.75 0 1 1 7.5 0a3.75 3.75 0 0 1-7.5 0" clip-rule="evenodd" /></svg>`;
+          button.innerHTML = showing ? '<span aria-hidden="true">◉</span>' : '<span aria-hidden="true">◌</span>';
         });
         wrapper.appendChild(button);
       });
     }
 
-    initPasswordVisibility();
-
-    renderSources();
-      resetChatShell();
-      goToView('chat-view');
-    }
-
-    function openExistingChat() {
+function openExistingChat() {
       filesUploaded = ['Constituicao_Federal_1988.pdf', 'Codigo_Processo_Civil.pdf', 'Artigos_9_10_CPC.txt'];
       $('#chat-title-display').textContent = 'Fundamentos e Princípios do Processo Civil';
       $('#chat-subtitle-display').textContent = '3 fontes processadas • exemplo demonstrativo';
@@ -1380,14 +2330,12 @@
     }
 
     function handleSourceSearch(event) {
+      updateSourceSearchState();
+    updateSourceModeUI();
+    initWorkspaceResizers();
       if (event.key === 'Enter') {
         event.preventDefault();
-        const value = event.target.value.trim();
-        if (value) {
-          showToast('Pesquisa rápida concluída: fontes simuladas encontradas.');
-          simulateFileUpload();
-          event.target.value = '';
-        }
+        submitSourceSearch();
       }
     }
 
@@ -1419,6 +2367,7 @@
       if (!text) return;
       appendMessage('user', escapeHTML(text));
       input.value = '';
+      updateChatSendState();
       showTyping();
       setTimeout(() => { removeTyping(); appendMessage('ai', buildAiResponse(text)); }, 850);
     }
@@ -1474,17 +2423,105 @@
     }
 
     function addNote() {
-      appendMessage('ai', '📝 <strong>Nota adicionada:</strong> revisar consistência visual, contraste do dashboard e alinhamento dos botões do estúdio antes da apresentação.');
-      showToast('Nota criada no chat demonstrativo.');
+      const list = document.getElementById('studioNotesList');
+      const empty = document.getElementById('studioEmptyState');
+      if (!list) return;
+      list.classList.add('has-notes');
+      if (empty) empty.style.display = 'none';
+      list.innerHTML = `<div class="studio-note-item">
+        <div class="studio-note-main">
+          <div class="studio-note-icon">🟨</div>
+          <div>
+            <div class="studio-note-title" contenteditable="true" spellcheck="false">Nova nota</div>
+            <div class="studio-note-time">agora</div>
+          </div>
+        </div>
+        <div class="studio-note-actions">
+          <button class="studio-note-menu" onclick="toggleNoteMenu(event)" aria-label="Mais opções">⋮</button>
+          <div class="note-actions-menu">
+            <button onclick="deleteStudioNote(event)">🗑️ <span>Excluir</span></button>
+            <button onclick="editStudioNote(event)">✎ <span>Editar título</span></button>
+          </div>
+        </div>
+      </div>` + list.innerHTML;
+      showToast('Nota criada com sucesso.');
     }
 
-    function escapeHTML(str) {
+    
+    function toggleNoteMenu(event) {
+      event.stopPropagation();
+      const menu = event.currentTarget.closest('.studio-note-actions')?.querySelector('.note-actions-menu');
+      if (!menu) return;
+      document.querySelectorAll('.note-actions-menu.active').forEach(other => {
+        if (other !== menu) other.classList.remove('active');
+      });
+      menu.classList.toggle('active');
+    }
+
+    function deleteStudioNote(event) {
+      event.stopPropagation();
+      event.currentTarget.closest('.studio-note-item')?.remove();
+      if (!document.querySelector('.studio-note-item')) {
+        const list = document.getElementById('studioNotesList');
+        const empty = document.getElementById('studioEmptyState');
+        list?.classList.remove('has-notes');
+        if (empty) empty.style.display = '';
+      }
+      showToast('Nota excluída.');
+    }
+
+    function editStudioNote(event) {
+      event.stopPropagation();
+      const title = event.currentTarget.closest('.studio-note-item')?.querySelector('.studio-note-title');
+      event.currentTarget.closest('.note-actions-menu')?.classList.remove('active');
+      if (title) {
+        title.focus();
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(title);
+        selection.removeAllRanges();
+        selection.addRange(range);
+      }
+    }
+
+    function toggleShareAccess(event) {
+      event.stopPropagation();
+      const menu = document.getElementById('shareAccessMenu');
+      menu?.classList.toggle('active');
+    }
+
+    function setShareAccess(event, label, description) {
+      event.stopPropagation();
+      document.getElementById('shareAccessCurrent').textContent = label;
+      document.getElementById('shareAccessDescription').textContent = description;
+      document.querySelectorAll('#shareAccessMenu button').forEach(btn => btn.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      document.getElementById('shareAccessMenu')?.classList.remove('active');
+    }
+
+function escapeHTML(str) {
       return str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag]));
     }
 
 
-    function closeFloatingMenus(exceptId = null) {
-      document.querySelectorAll('.settings-menu.active, .card-actions-menu.active, .chat-history-menu.active').forEach(menu => {
+    
+    function openShareModal() {
+      document.getElementById('shareModal')?.classList.add('active');
+      document.getElementById('shareModal')?.setAttribute('aria-hidden', 'false');
+    }
+    function closeShareModal() {
+      document.getElementById('shareModal')?.classList.remove('active');
+      document.getElementById('shareModal')?.setAttribute('aria-hidden', 'true');
+      document.getElementById('shareAccessMenu')?.classList.remove('active');
+    }
+    function copyShareLink() {
+      const url = window.location.href || 'https://exemplo.github.io/juris-private';
+      if (navigator.clipboard) navigator.clipboard.writeText(url).catch(() => {});
+      showToast('Link copiado.');
+    }
+
+function closeFloatingMenus(exceptId = null) {
+      document.querySelectorAll('.settings-menu.active, .card-actions-menu.active, .chat-history-menu.active, .source-dropdown.active').forEach(menu => {
         if (!exceptId || menu.id !== exceptId) menu.classList.remove('active');
       });
       if (!exceptId) document.querySelectorAll('.settings-submenu.active').forEach(menu => menu.classList.remove('active'));
@@ -1493,14 +2530,144 @@
 
     function toggleSettingsMenu(event, id) {
       event.stopPropagation();
+      const localMenu = event.currentTarget.closest('.settings-wrap')?.querySelector('.settings-menu');
+      const menu = localMenu || document.getElementById(id);
+      if (!menu) return;
+      const willOpen = !menu.classList.contains('active');
+      closeFloatingMenus(menu.id || id);
+      document.querySelectorAll('.settings-menu.active').forEach(other => { if (other !== menu) other.classList.remove('active'); });
+      menu.classList.toggle('active', willOpen);
+    }
+
+    function applyThemeMode(mode) {
+      const target = mode === 'dispositivo'
+        ? (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'claro' : 'escuro')
+        : mode;
+      document.body.classList.toggle('theme-light', target === 'claro');
+      localStorage.setItem('jp-theme-mode', mode);
+    }
+
+    function setThemeDemo(mode) {
+      localStorage.setItem('jp-theme-manual', 'true');
+      applyThemeMode(mode);
+      showToast(mode === 'claro' ? 'Modo claro ativado.' : mode === 'escuro' ? 'Modo escuro ativado.' : 'Tema do dispositivo aplicado.');
+      closeFloatingMenus();
+    }
+
+    function applyStoredTheme() {
+      const manualTheme = localStorage.getItem('jp-theme-manual') === 'true';
+      applyThemeMode(manualTheme ? (localStorage.getItem('jp-theme-mode') || 'escuro') : 'escuro');
+    }
+
+    function toggleWorkspacePanel(side) {
+      const workspace = document.getElementById('workspaceMain');
+      if (!workspace) return;
+      const cls = side === 'left' ? 'sources-collapsed' : 'studio-collapsed';
+      workspace.classList.toggle(cls);
+    }
+
+    function toggleSourceMenu(event, id) {
+      event.stopPropagation();
       const menu = document.getElementById(id);
+      if (!menu) return;
       const willOpen = !menu.classList.contains('active');
       closeFloatingMenus(id);
       menu.classList.toggle('active', willOpen);
     }
 
-    function setThemeDemo(mode) {
-      showToast('Tema demonstrativo: ' + mode + '.');
+    function selectSourceMode(event, mode) {
+      event.stopPropagation();
+      if (mode === 'Web' || mode === 'Drive') {
+        window.currentSourceProvider = mode;
+      } else {
+        window.currentSourceMode = mode;
+      }
+      updateSourceModeUI();
+      showToast(mode + ' selecionado.');
+      closeFloatingMenus();
+    }
+
+    function updateSourceSearchState() {
+      const card = document.getElementById('source-search-card');
+      const input = document.getElementById('sourceWebInput');
+      card?.classList.toggle('has-text', !!input?.value.trim());
+    }
+
+    function submitSourceSearch() {
+      const input = document.getElementById('sourceWebInput');
+      const value = input?.value.trim();
+      if (!value) {
+        input?.focus();
+        return;
+      }
+      showToast('Pesquisa concluída: fontes simuladas encontradas.');
+      simulateFileUpload();
+      input.value = '';
+      updateSourceSearchState();
+    updateSourceModeUI();
+    initWorkspaceResizers();
+    }
+
+    function updateChatSendState() {
+      const area = document.getElementById('chat-input-area');
+      const input = document.getElementById('userInput');
+      area?.classList.toggle('has-text', !!input?.value.trim());
+    }
+
+    function openUtilityModal(type) {
+      closeFloatingMenus();
+      closeUtilityModals();
+      const id = type === 'feedback' ? 'feedbackModal' : type === 'language' ? 'languageModal' : 'legalModal';
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.add('active');
+        modal.setAttribute('aria-hidden', 'false');
+      }
+    }
+
+    function closeUtilityModals() {
+      document.querySelectorAll('.utility-modal.active').forEach(modal => {
+        modal.classList.remove('active');
+        modal.setAttribute('aria-hidden', 'true');
+      });
+    }
+
+    function submitFeedback() {
+      const txt = document.getElementById('feedbackText');
+      if (txt && !txt.value.trim()) {
+        showToast('Digite seu feedback antes de enviar.');
+        txt.focus();
+        return;
+      }
+      if (txt) txt.value = '';
+      closeUtilityModals();
+      showToast('Feedback enviado na demonstração.');
+    }
+
+    function setResponseLanguage(language) {
+      closeUtilityModals();
+      showToast('Idioma da resposta definido para: ' + language + '.');
+    }
+
+    function initCodeInputs() {
+      const inputs = Array.from($$('.code-input'));
+      inputs.forEach((input, index) => {
+        input.addEventListener('input', () => {
+          input.value = input.value.replace(/\D/g, '').slice(0, 1);
+          if (input.value && inputs[index + 1]) inputs[index + 1].focus();
+        });
+        input.addEventListener('keydown', (event) => {
+          if (event.key === 'Backspace' && !input.value && inputs[index - 1]) inputs[index - 1].focus();
+        });
+        input.addEventListener('paste', (event) => {
+          event.preventDefault();
+          const pasted = (event.clipboardData || window.clipboardData).getData('text').replace(/\D/g, '').slice(0, 6);
+          pasted.split('').forEach((digit, pasteIndex) => {
+            if (inputs[pasteIndex]) inputs[pasteIndex].value = digit;
+          });
+          inputs[Math.min(pasted.length, inputs.length) - 1]?.focus();
+        });
+      });
     }
 
     function toggleCardMenu(event, id) {
@@ -1570,7 +2737,7 @@
       filesUploaded = [];
       renderSources();
       resetChatShell();
-      document.getElementById('chat-title-display').textContent = 'Sem título';
+      setChatTitle('Sem título');
       showToast('Histórico da conversa excluído.');
       closeFloatingMenus();
     }
@@ -1607,12 +2774,120 @@
     }
 
     document.addEventListener('click', (event) => {
-      if (!event.target.closest('.settings-wrap') && !event.target.closest('.card-menu-wrap') && !event.target.closest('.chat-menu-wrap') && !event.target.closest('.ai-settings-panel')) {
+      if (event.target.classList && event.target.classList.contains('utility-modal')) closeUtilityModals();
+      if (!event.target.closest('.settings-wrap') && !event.target.closest('.card-menu-wrap') && !event.target.closest('.chat-menu-wrap') && !event.target.closest('.ai-settings-panel') && !event.target.closest('.source-menu-wrap') && !event.target.closest('.studio-note-actions') && !event.target.closest('.share-access-wrap')) {
         closeFloatingMenus();
+        document.querySelectorAll('.note-actions-menu.active').forEach(menu => menu.classList.remove('active'));
+        document.getElementById('shareAccessMenu')?.classList.remove('active');
       }
     });
 
+
+    window.currentSourceProvider = 'Web';
+    window.currentSourceMode = 'Pesquisa rápida';
+    window.sourceModeAssets = {
+      Web: { icon: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIgLz4KCTxwYXRoIGZpbGw9IiNFQUYxRkYiIGQ9Ik0xNi4zNiAxNGMuMDgtLjY2LjE0LTEuMzIuMTQtMnMtLjA2LTEuMzQtLjE0LTJoMy4zOGMuMTYuNjQuMjYgMS4zMS4yNiAycy0uMSAxLjM2LS4yNiAybS01LjE1IDUuNTZjLjYtMS4xMSAxLjA2LTIuMzEgMS4zOC0zLjU2aDIuOTVhOC4wMyA4LjAzIDAgMCAxLTQuMzMgMy41Nk0xNC4zNCAxNEg5LjY2Yy0uMS0uNjYtLjE2LTEuMzItLjE2LTJzLjA2LTEuMzUuMTYtMmg0LjY4Yy4wOS42NS4xNiAxLjMyLjE2IDJzLS4wNyAxLjM0LS4xNiAyTTEyIDE5Ljk2Yy0uODMtMS4yLTEuNS0yLjUzLTEuOTEtMy45NmgzLjgyYy0uNDEgMS40My0xLjA4IDIuNzYtMS45MSAzLjk2TTggOEg1LjA4QTcuOTIgNy45MiAwIDAgMSA5LjQgNC40NEM4LjggNS41NSA4LjM1IDYuNzUgOCA4bS0yLjkyIDhIOGMuMzUgMS4yNS44IDIuNDUgMS40IDMuNTZBOCA4IDAgMCAxIDUuMDggMTZtLS44Mi0yQzQuMSAxMy4zNiA0IDEyLjY5IDQgMTJzLjEtMS4zNi4yNi0yaDMuMzhjLS4wOC42Ni0uMTQgMS4zMi0uMTQgMnMuMDYgMS4zNC4xNCAyTTEyIDQuMDNjLjgzIDEuMiAxLjUgMi41NCAxLjkxIDMuOTdoLTMuODJjLjQxLTEuNDMgMS4wOC0yLjc3IDEuOTEtMy45N00xOC45MiA4aC0yLjk1YTE1LjcgMTUuNyAwIDAgMC0xLjM4LTMuNTZjMS44NC42MyAzLjM3IDEuOSA0LjMzIDMuNTZNMTIgMkM2LjQ3IDIgMiA2LjUgMiAxMmExMCAxMCAwIDAgMCAxMCAxMGExMCAxMCAwIDAgMCAxMC0xMEExMCAxMCAwIDAgMCAxMiAyIiAvPgo8L3N2Zz4K', label: 'Web', placeholder: 'Pesquise novas fontes na web' },
+      Drive: { icon: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxLjEyZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjU2IDIyOSI+Cgk8cGF0aCBkPSJNMCAwaDI1NnYyMjlIMHoiIGZpbGw9Im5vbmUiIC8+Cgk8cGF0aCBmaWxsPSIjMDA2NmRhIiBkPSJtMTkuMzU0IDE5Ni4wMzRsMTEuMjkgMTkuNWMyLjM0NiA0LjEwNiA1LjcxOCA3LjMzMiA5LjY3NyA5LjY3OHExNy4wMDktMjEuNTkxIDIzLjY4LTMzLjEzN3E2Ljc3LTExLjcxNyAxNi42NDEtMzYuNjU1cS0yNi42MDQtMy41MDItNDAuMzItMy41MDJxLTEzLjE2NSAwLTQwLjMyMiAzLjUwMmMwIDQuNTQ1IDEuMTczIDkuMDkgMy41MTkgMTMuMTk2eiIgLz4KCTxwYXRoIGZpbGw9IiNlYTQzMzUiIGQ9Ik0yMTUuNjgxIDIyNS4yMTJjMy45Ni0yLjM0NiA3LjMzMi01LjU3MiA5LjY3Ny05LjY3N2w0LjY5Mi04LjA2NGwyMi40MzQtMzguODU1YTI2LjU3IDI2LjU3IDAgMCAwIDMuNTE4LTEzLjE5NnEtMjcuMzE1LTMuNTAyLTQwLjI0Ny0zLjUwMnEtMTMuODk5IDAtNDAuMjQ4IDMuNTAycTkuNzU0IDI1LjA3NSAxNi40MjIgMzYuNjU1cTYuNzI0IDExLjY4MyAyMy43NTIgMzMuMTM3IiAvPgoJPHBhdGggZmlsbD0iIzAwODMyZCIgZD0iTTEyOC4wMDEgNzMuMzExcTE5LjY4LTIzLjc2OCAyNy4xMjUtMzYuNjU1cTUuOTk2LTEwLjM3NyAxMy4xOTYtMzMuMTM3QzE2NC4zNjMgMS4xNzMgMTU5LjgxOCAwIDE1NS4xMjYgMGgtNTQuMjVDOTYuMTg0IDAgOTEuNjQgMS4zMiA4Ny42OCAzLjUxOXE5LjE2IDI2LjEwMyAxNS41NDQgMzcuMTU0cTcuMDU2IDEyLjIxMyAyNC43NzcgMzIuNjM4IiAvPgoJPHBhdGggZmlsbD0iIzI2ODRmYyIgZD0iTTE3NS4zNiAxNTUuNDJIODAuNjQybC00MC4zMiA2OS43OTJjMy45NTggMi4zNDYgOC41MDMgMy41MTkgMTMuMTk1IDMuNTE5aDE0OC45NjhjNC42OTIgMCA5LjIzOC0xLjMyIDEzLjE5Ni0zLjUyeiIgLz4KCTxwYXRoIGZpbGw9IiMwMGFjNDciIGQ9Ik0xMjguMDAxIDczLjMxMUw4Ny42ODEgMy41MmMtMy45NiAyLjM0Ni03LjMzMiA1LjU3MS05LjY3OCA5LjY3N0wzLjUxOSAxNDIuMjI0QTI2LjU3IDI2LjU3IDAgMCAwIDAgMTU1LjQyaDgwLjY0MnoiIC8+Cgk8cGF0aCBmaWxsPSIjZmZiYTAwIiBkPSJtMjE1LjI0MiA3Ny43MWwtMzcuMjQzLTY0LjUxNGMtMi4zNDUtNC4xMDYtNS43MTgtNy4zMzEtOS42NzctOS42NzdsLTQwLjMyIDY5Ljc5Mmw0Ny4zNTggODIuMTA5aDgwLjQ5NmMwLTQuNTQ2LTEuMTczLTkuMDktMy41MTktMTMuMTk2eiIgLz4KPC9zdmc+Cg==', label: 'Drive', placeholder: 'Encontrar arquivos do Drive' },
+      'Pesquisa rápida': { icon: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIgLz4KCTxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0VBRjFGRiIgc3Ryb2tlLXdpZHRoPSIyIj4KCQk8cGF0aCBkPSJtMTYuNzUgMi41bC41MiAxLjIzbDEuMjMuNTJsLTEuMjMuNTJMMTYuNzUgNmwtLjUyLTEuMjNMMTUgNC4yNWwxLjIzLS41MnoiIC8+CgkJPHBhdGggc3Ryb2tlLWxpbmVjYXA9InNxdWFyZSIgZD0ibTE1LjgwMyAxNS44MDRsNS4zMDMgNS4zMDNtLTUuMzAzLTUuMzAzQTcuNSA3LjUgMCAxIDEgMTAgMy4wMTdtNS44MDMgMTIuNzg3QTcuNDcgNy40NyAwIDAgMCAxNy45ODMgMTEiIC8+Cgk8L2c+Cjwvc3ZnPgo=', label: 'Pesquisa rápida' },
+      'Deep Research': { icon: 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIgLz4KCTxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0VBRjFGRiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiPgoJCTxwYXRoIGQ9Ik0yMSAxMmE5IDkgMCAxIDAtOSA5TTMuNiA5aDE2LjhNMy42IDE1aDcuOSIgLz4KCQk8cGF0aCBkPSJNMTEuNSAzYTE3IDE3IDAgMCAwIDAgMThtMS0xOGExNyAxNyAwIDAgMSAyLjU3NCA4LjYyTTE1IDE4YTMgMyAwIDEgMCA2IDBhMyAzIDAgMSAwLTYgMG01LjIgMi4yTDIyIDIyIiAvPgoJPC9nPgo8L3N2Zz4K', label: 'Deep Research', placeholder: 'O que você quer pesquisar?' }
+    };
+
+    function updateSourceModeUI() {
+      const provider = window.currentSourceProvider || 'Web';
+      const mode = window.currentSourceMode || 'Pesquisa rápida';
+      const providerMeta = window.sourceModeAssets[provider];
+      const modeMeta = window.sourceModeAssets[mode];
+      const providerChip = document.getElementById('providerChip');
+      const providerText = document.getElementById('providerChipText');
+      const modeChip = document.getElementById('modeChip');
+      const modeText = document.getElementById('modeChipText');
+      const input = document.getElementById('sourceWebInput');
+      const searchImg = document.querySelector('#sourceSearchSubmit .search-icon img');
+
+      if (providerChip) providerChip.querySelector('.chip-leading img').src = providerMeta.icon;
+      if (providerText) providerText.textContent = providerMeta.label;
+      if (modeChip) modeChip.querySelector('.chip-leading img').src = modeMeta.icon;
+      if (modeText) modeText.textContent = modeMeta.label;
+      if (searchImg) searchImg.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIgLz4KCTxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0NCRDVFMSIgc3Ryb2tlLXdpZHRoPSIyIj4KCQk8cGF0aCBkPSJtMTYuNzUgMi41bC41MiAxLjIzbDEuMjMuNTJsLTEuMjMuNTJMMTYuNzUgNmwtLjUyLTEuMjNMMTUgNC4yNWwxLjIzLS41MnoiIC8+CgkJPHBhdGggc3Ryb2tlLWxpbmVjYXA9InNxdWFyZSIgZD0ibTE1LjgwMyAxNS44MDRsNS4zMDMgNS4zMDNtLTUuMzAzLTUuMzAzQTcuNSA3LjUgMCAxIDEgMTAgMy4wMTdtNS44MDMgMTIuNzg3QTcuNDcgNy40NyAwIDAgMCAxNy45ODMgMTEiIC8+Cgk8L2c+Cjwvc3ZnPgo=';
+
+      const webBtn = document.querySelector('#web-source-menu button[data-mode="Web"] img'); if (webBtn) webBtn.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIgLz4KCTxwYXRoIGZpbGw9IiNFQUYxRkYiIGQ9Ik0xNi4zNiAxNGMuMDgtLjY2LjE0LTEuMzIuMTQtMnMtLjA2LTEuMzQtLjE0LTJoMy4zOGMuMTYuNjQuMjYgMS4zMS4yNiAycy0uMSAxLjM2LS4yNiAybS01LjE1IDUuNTZjLjYtMS4xMSAxLjA2LTIuMzEgMS4zOC0zLjU2aDIuOTVhOC4wMyA4LjAzIDAgMCAxLTQuMzMgMy41Nk0xNC4zNCAxNEg5LjY2Yy0uMS0uNjYtLjE2LTEuMzItLjE2LTJzLjA2LTEuMzUuMTYtMmg0LjY4Yy4wOS42NS4xNiAxLjMyLjE2IDJzLS4wNyAxLjM0LS4xNiAyTTEyIDE5Ljk2Yy0uODMtMS4yLTEuNS0yLjUzLTEuOTEtMy45NmgzLjgyYy0uNDEgMS40My0xLjA4IDIuNzYtMS45MSAzLjk2TTggOEg1LjA4QTcuOTIgNy45MiAwIDAgMSA5LjQgNC40NEM4LjggNS41NSA4LjM1IDYuNzUgOCA4bS0yLjkyIDhIOGMuMzUgMS4yNS44IDIuNDUgMS40IDMuNTZBOCA4IDAgMCAxIDUuMDggMTZtLS44Mi0yQzQuMSAxMy4zNiA0IDEyLjY5IDQgMTJzLjEtMS4zNi4yNi0yaDMuMzhjLS4wOC42Ni0uMTQgMS4zMi0uMTQgMnMuMDYgMS4zNC4xNCAyTTEyIDQuMDNjLjgzIDEuMiAxLjUgMi41NCAxLjkxIDMuOTdoLTMuODJjLjQxLTEuNDMgMS4wOC0yLjc3IDEuOTEtMy45N00xOC45MiA4aC0yLjk1YTE1LjcgMTUuNyAwIDAgMC0xLjM4LTMuNTZjMS44NC42MyAzLjM3IDEuOSA0LjMzIDMuNTZNMTIgMkM2LjQ3IDIgMiA2LjUgMiAxMmExMCAxMCAwIDAgMCAxMCAxMGExMCAxMCAwIDAgMCAxMC0xMEExMCAxMCAwIDAgMCAxMiAyIiAvPgo8L3N2Zz4K';
+      const driveBtn = document.querySelector('#web-source-menu button[data-mode="Drive"] img'); if (driveBtn) driveBtn.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxLjEyZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjU2IDIyOSI+Cgk8cGF0aCBkPSJNMCAwaDI1NnYyMjlIMHoiIGZpbGw9Im5vbmUiIC8+Cgk8cGF0aCBmaWxsPSIjMDA2NmRhIiBkPSJtMTkuMzU0IDE5Ni4wMzRsMTEuMjkgMTkuNWMyLjM0NiA0LjEwNiA1LjcxOCA3LjMzMiA5LjY3NyA5LjY3OHExNy4wMDktMjEuNTkxIDIzLjY4LTMzLjEzN3E2Ljc3LTExLjcxNyAxNi42NDEtMzYuNjU1cS0yNi42MDQtMy41MDItNDAuMzItMy41MDJxLTEzLjE2NSAwLTQwLjMyMiAzLjUwMmMwIDQuNTQ1IDEuMTczIDkuMDkgMy41MTkgMTMuMTk2eiIgLz4KCTxwYXRoIGZpbGw9IiNlYTQzMzUiIGQ9Ik0yMTUuNjgxIDIyNS4yMTJjMy45Ni0yLjM0NiA3LjMzMi01LjU3MiA5LjY3Ny05LjY3N2w0LjY5Mi04LjA2NGwyMi40MzQtMzguODU1YTI2LjU3IDI2LjU3IDAgMCAwIDMuNTE4LTEzLjE5NnEtMjcuMzE1LTMuNTAyLTQwLjI0Ny0zLjUwMnEtMTMuODk5IDAtNDAuMjQ4IDMuNTAycTkuNzU0IDI1LjA3NSAxNi40MjIgMzYuNjU1cTYuNzI0IDExLjY4MyAyMy43NTIgMzMuMTM3IiAvPgoJPHBhdGggZmlsbD0iIzAwODMyZCIgZD0iTTEyOC4wMDEgNzMuMzExcTE5LjY4LTIzLjc2OCAyNy4xMjUtMzYuNjU1cTUuOTk2LTEwLjM3NyAxMy4xOTYtMzMuMTM3QzE2NC4zNjMgMS4xNzMgMTU5LjgxOCAwIDE1NS4xMjYgMGgtNTQuMjVDOTYuMTg0IDAgOTEuNjQgMS4zMiA4Ny42OCAzLjUxOXE5LjE2IDI2LjEwMyAxNS41NDQgMzcuMTU0cTcuMDU2IDEyLjIxMyAyNC43NzcgMzIuNjM4IiAvPgoJPHBhdGggZmlsbD0iIzI2ODRmYyIgZD0iTTE3NS4zNiAxNTUuNDJIODAuNjQybC00MC4zMiA2OS43OTJjMy45NTggMi4zNDYgOC41MDMgMy41MTkgMTMuMTk1IDMuNTE5aDE0OC45NjhjNC42OTIgMCA5LjIzOC0xLjMyIDEzLjE5Ni0zLjUyeiIgLz4KCTxwYXRoIGZpbGw9IiMwMGFjNDciIGQ9Ik0xMjguMDAxIDczLjMxMUw4Ny42ODEgMy41MmMtMy45NiAyLjM0Ni03LjMzMiA1LjU3MS05LjY3OCA5LjY3N0wzLjUxOSAxNDIuMjI0QTI2LjU3IDI2LjU3IDAgMCAwIDAgMTU1LjQyaDgwLjY0MnoiIC8+Cgk8cGF0aCBmaWxsPSIjZmZiYTAwIiBkPSJtMjE1LjI0MiA3Ny43MWwtMzcuMjQzLTY0LjUxNGMtMi4zNDUtNC4xMDYtNS43MTgtNy4zMzEtOS42NzctOS42NzdsLTQwLjMyIDY5Ljc5Mmw0Ny4zNTggODIuMTA5aDgwLjQ5NmMwLTQuNTQ2LTEuMTczLTkuMDktMy41MTktMTMuMTk2eiIgLz4KPC9zdmc+Cg==';
+      const quickBtn = document.querySelector('#quick-source-menu button[data-mode="Pesquisa rápida"] img'); if (quickBtn) quickBtn.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIgLz4KCTxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0VBRjFGRiIgc3Ryb2tlLXdpZHRoPSIyIj4KCQk8cGF0aCBkPSJtMTYuNzUgMi41bC41MiAxLjIzbDEuMjMuNTJsLTEuMjMuNTJMMTYuNzUgNmwtLjUyLTEuMjNMMTUgNC4yNWwxLjIzLS41MnoiIC8+CgkJPHBhdGggc3Ryb2tlLWxpbmVjYXA9InNxdWFyZSIgZD0ibTE1LjgwMyAxNS44MDRsNS4zMDMgNS4zMDNtLTUuMzAzLTUuMzAzQTcuNSA3LjUgMCAxIDEgMTAgMy4wMTdtNS44MDMgMTIuNzg3QTcuNDcgNy40NyAwIDAgMCAxNy45ODMgMTEiIC8+Cgk8L2c+Cjwvc3ZnPgo=';
+      const deepBtn = document.querySelector('#quick-source-menu button[data-mode="Deep Research"] img'); if (deepBtn) deepBtn.src = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPgoJPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIgLz4KCTxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0VBRjFGRiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjIiPgoJCTxwYXRoIGQ9Ik0yMSAxMmE5IDkgMCAxIDAtOSA5TTMuNiA5aDE2LjhNMy42IDE1aDcuOSIgLz4KCQk8cGF0aCBkPSJNMTEuNSAzYTE3IDE3IDAgMCAwIDAgMThtMS0xOGExNyAxNyAwIDAgMSAyLjU3NCA4LjYyTTE1IDE4YTMgMyAwIDEgMCA2IDBhMyAzIDAgMSAwLTYgMG01LjIgMi4yTDIyIDIyIiAvPgoJPC9nPgo8L3N2Zz4K';
+
+      document.querySelectorAll('#web-source-menu button, #quick-source-menu button').forEach(btn => btn.classList.remove('active'));
+      document.querySelector(`#web-source-menu button[data-mode="${provider}"]`)?.classList.add('active');
+      document.querySelector(`#quick-source-menu button[data-mode="${mode}"]`)?.classList.add('active');
+
+      if (input) {
+        if (mode === 'Deep Research') input.placeholder = 'O que você quer pesquisar?';
+        else input.placeholder = provider === 'Drive' ? 'Encontrar arquivos do Drive' : 'Pesquise novas fontes na web';
+      }
+    }
+
+    function initWorkspaceResizers() {
+      const workspace = document.getElementById('workspaceMain');
+      if (!workspace) return;
+      const root = document.documentElement;
+      const savedSources = localStorage.getItem('jp-sources-width');
+      const savedStudio = localStorage.getItem('jp-studio-width');
+      if (savedSources) root.style.setProperty('--sources-width', savedSources + 'px');
+      if (savedStudio) root.style.setProperty('--studio-width', savedStudio + 'px');
+      let active = null;
+      const minLeft = 70, maxLeft = 560, minRight = 70, maxRight = 560;
+      document.querySelectorAll('.panel-resizer').forEach(handle => {
+        if (handle.dataset.ready === 'true') return;
+        handle.dataset.ready = 'true';
+        handle.addEventListener('dblclick', () => {
+          if (handle.dataset.side === 'left') {
+            root.style.setProperty('--sources-width', '300px');
+            localStorage.setItem('jp-sources-width', '300');
+          } else {
+            root.style.setProperty('--studio-width', '320px');
+            localStorage.setItem('jp-studio-width', '320');
+          }
+        });
+        handle.addEventListener('mousedown', (event) => {
+          const side = handle.dataset.side;
+          if (side === 'left' && workspace.classList.contains('sources-collapsed')) return;
+          if (side === 'right' && workspace.classList.contains('studio-collapsed')) return;
+          active = { side, handle };
+          handle.classList.add('resizing');
+          document.body.style.userSelect = 'none';
+          document.body.style.cursor = 'col-resize';
+          event.preventDefault();
+        });
+      });
+      window.addEventListener('mousemove', (event) => {
+        if (!active) return;
+        const rect = workspace.getBoundingClientRect();
+        if (active.side === 'left') {
+          const width = Math.max(minLeft, Math.min(maxLeft, event.clientX - rect.left));
+          root.style.setProperty('--sources-width', width + 'px');
+          localStorage.setItem('jp-sources-width', String(width));
+        } else {
+          const width = Math.max(minRight, Math.min(maxRight, rect.right - event.clientX));
+          root.style.setProperty('--studio-width', width + 'px');
+          localStorage.setItem('jp-studio-width', String(width));
+        }
+      });
+      window.addEventListener('mouseup', () => {
+        if (!active) return;
+        active.handle.classList.remove('resizing');
+        document.body.style.userSelect = '';
+        document.body.style.cursor = '';
+        active = null;
+      });
+    }
+
+    initPasswordVisibility();
+    initCodeInputs();
     initDeviceSubmenus();
+    applyStoredTheme();
+    updateChatSendState();
+    updateSourceSearchState();
+    updateSourceModeUI();
+    initWorkspaceResizers();
     renderSources();
   </script>
 </body>
